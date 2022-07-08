@@ -17,7 +17,7 @@ function Hero(){
                 </div>
                 <div className="tagline-right">
                     <img id="test"alt="loca"src={bg1}/>
-]                </div>
+                </div>
 
             </div>
         </div>
