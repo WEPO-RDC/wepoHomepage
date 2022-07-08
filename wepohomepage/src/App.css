@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Monoton&display=swap');
+
+:root{
+
+    --primary1-light:#F5F5D8;
+    --primary1:#FFEC3F;
+    --primary1-dark: #CA8207;
+    --primary2-dark1:#092140;
+    --primary2-dark2: #12489F;
+    --primary2-dark3:#1671C0;
+    --primary2-dark4:#40B3FA;
+}
 .App {
   text-align: center;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,26 +22,115 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*NAV BAR*/
+.nav{
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0.000015px 3px 2px rgba(0, 0, 0, 0.234);
+  z-index: 3;
+}
+.nav-sns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 20vw;
+  margin-right: 10vw;
+}
+.wepo-logo{
+  width: 100px;
+  margin-left: 50px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: black;
+
+}
+.nav a:hover, .fa-brands:hover{
+  color: var(--primary2-dark4);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+
+
+
+/*HERO ================================================*/
+.hero-container{
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  padding: 150px 0px 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg,white 40%,#ffec3f4d 90% ) ;
+
+}
+
+.tagline{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width:85%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagline-left{
+  display: flex;
+  width: 40vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+.tagline-right{
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagline h1{
+  font-size: 3rem;
+}
+.tag-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+}
+.tag-list li{
+  font-size: 30px;
+  margin: 0px 20px 0px 20px;
+}
+
+#test{
+  width: 400px;
+  height: 80%;
+}
+.warning{
+  visibility: hidden;
+}
+/*MEDIA QUERY */
+@media (max-width:450px){
+  #root{
+    opacity:
   }
-  to {
-    transform: rotate(360deg);
+  .warning{
+    visibility: visible;
   }
 }
