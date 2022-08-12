@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/wepoHomepage/static/css/main.b1bf102c.css",
-    "main.js": "/wepoHomepage/static/js/main.89f80387.js",
+    "main.css": "/wepoHomepage/static/css/main.4ea130b7.css",
+    "main.js": "/wepoHomepage/static/js/main.3ab5505c.js",
     "static/js/787.70a4d118.chunk.js": "/wepoHomepage/static/js/787.70a4d118.chunk.js",
-    "static/media/bg1.png": "/wepoHomepage/static/media/bg1.a1e5acac8711f7946a4e.png",
+    "static/media/1.png": "/wepoHomepage/static/media/1.f9731869f5e755c82e36.png",
     "static/media/weposvg.svg": "/wepoHomepage/static/media/weposvg.3ade083a7048298b7a626c4feec1c33c.svg",
     "static/media/WEPOLOGOSVG.svg": "/wepoHomepage/static/media/WEPOLOGOSVG.9af570fe8fc6ebd67b89464dfd6b5544.svg",
     "index.html": "/wepoHomepage/index.html",
-    "main.b1bf102c.css.map": "/wepoHomepage/static/css/main.b1bf102c.css.map",
-    "main.89f80387.js.map": "/wepoHomepage/static/js/main.89f80387.js.map",
+    "main.4ea130b7.css.map": "/wepoHomepage/static/css/main.4ea130b7.css.map",
+    "main.3ab5505c.js.map": "/wepoHomepage/static/js/main.3ab5505c.js.map",
     "787.70a4d118.chunk.js.map": "/wepoHomepage/static/js/787.70a4d118.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1bf102c.css",
-    "static/js/main.89f80387.js"
+    "static/css/main.4ea130b7.css",
+    "static/js/main.3ab5505c.js"
   ]
 }
