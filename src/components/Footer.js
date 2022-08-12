@@ -11,7 +11,7 @@ function Signup(){
 function Footer(){
     return(
         <footer id="footer">
-            <div className="footer-1">
+            {/*<div className="footer-1">
                 <div className="footer-title">
                     <h3>WEPO RDC</h3>
                     <div className="footer-sns">
@@ -38,14 +38,14 @@ function Footer(){
 
                 </div>
 
-            </div>
+            </div>*/}
             <div class="footer-text">
                 <a href="#">Termes d'utilisation</a>
                 <a href="#">Code de conduite de l'utilisateur</a>
-                <a href="mailto:wepo.cd@gmail.com"> Email us</a>
+                <a href="mailto:wepo.cd@gmail.com"> Envoyez-nous un email</a>
             </div>
             <p></p>
-            <p >Copyright WEPO 2022</p>
+            <p style={{fontSize:"10px"}}>Copyright WEPO 2022</p>
         </footer>
     )
 }

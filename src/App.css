@@ -15,9 +15,9 @@
   width: 100%;
 }
 
-
-
-
+#root{
+  width:100%;
+}
 .App-link {
   color: #61dafb;
 }
@@ -27,6 +27,7 @@
   height: 50px;
   padding: 10px;
   display: flex;
+  width:100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -34,14 +35,16 @@
   z-index: 100;
   background-color: var(--primary1);
 }
-.nav-sns{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  width: 20vw;
-  margin-right: 10vw;
+
+.okform{
+  padding-bottom: 50px;
+  margin-bottom: 100px;
 }
+
+.nav-sns{
+  margin-right: 30px;
+}
+
 .wepo-logo{
   width: 100px;
   margin-left: 50px;
@@ -53,7 +56,6 @@
   opacity:1;
   transition: 0.2s ease-in;
   padding: 10px;
-  border: 1px solid black;
 }
 .nav a:hover, .fa-brands:hover{
   color: black;
@@ -64,9 +66,44 @@
 }
 
 
+.inputField{
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
 
+#demo-radio-buttons-group-label{
+  margin:0px;
+  padding:0px;
+}
+.radioN{
+  margin-top: 20px;
+}
 
+.MuiFormGroup-root{
+  margin:0px;
+  padding:0px;
+  font-size: 12px;
 
+}
+.form{
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 80%;
+}
+
+.form h2{
+  font-family: 'Fredoka';
+  font-weight: 250;
+}
 /*HERO ================================================*/
 .hero-container{
   position: relative;
@@ -137,11 +174,12 @@
 /*FOOTER ======================================*/
 
 footer{
-  padding:50px 0px  20px 0px;
-  position: fixed;
-  bottom:0px;
+  padding:10px 0px  10px 0px;
+  position: absolute;
+  bottom:-250px;
   left:0px;
   margin: auto;
+  margin-top:50px;
   width:100%;
   background-color: var(--primary1);
 
@@ -149,7 +187,7 @@ footer{
 
 .footer-1{
   width:80%;
-  height:300px;
+  height:100px;
   margin:auto;
 }
 .footer-title{
@@ -165,6 +203,7 @@ footer{
   flex-direction: row;
 
 }
+
 
 .footer-content{
   width:90%;
@@ -192,11 +231,25 @@ footer form{
   width: 80%;
   margin:auto;
 }
-#footer-text{
+.footer-text{
+  font-size: 10px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  text-decoration: none;
+  
 }
+
+.footer-text a{
+  font-size: 10px;
+  text-decoration: none;
+  color: black;
+}
+
 
 
 
