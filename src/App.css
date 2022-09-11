@@ -17,55 +17,91 @@
 #root{
   width:100%;
   font-family: 'Inter', sans-serif;
+  height: 100%;
+  position:relative;
 }
 .App-link {
   color: #61dafb;
 }
 
 /*NAV BAR*/
+header{
+  all:unset;
+}
 .nav{
-  height: 50px;
   padding: 10px;
   display: flex;
   width:100%;
-  position: sticky;
   box-sizing: border-box;
-  block-size: auto;
+  height: 60px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 0.000015px 3px 2px rgba(0, 0, 0, 0.234);
   z-index: 100;
   background-color: var(--primary1);
+  position: sticky;
+  top:0;
+}
+.responsiveNav{
+  position:fixed;
+  top:40px;
+  z-index: 1;
+  width:100%;
+  background:var(--primary1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:2rem;
 }
 
+.responsiveNav a{
+  font-size: 3rem;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.6;
+}
+.responsiveNav a:hover{
+  opacity:1;
+}
 .okform{
   padding-bottom: 50px;
   margin-bottom: 100px;
 }
 
+.navRight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 200px;
+}
+
+.navRight .icon{
+  display: none;
+
+}
 .nav-sns{
   margin-right: 30px;
-  position:absolute;
   top: 38%;
   right:20%;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 #commission{
-  margin-right:40px;
-  font-size: 13px;
+  font-size: 12px;
   background-color: var(--primary3);
-  padding:10px 12px;
+  padding:7px 10px;
   border-radius: 10px;
-  box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.57);
-  -webkit-box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.57);
-  -moz-box-shadow: 2px 4px 14px -7px rgba(0,0,0,0.57);
+  box-shadow: 1px 2px 14px -7px rgba(0,0,0,0.57);
+  -webkit-box-shadow: 1px 2px 10px -7px rgba(0,0,0,0.57);
+  -moz-box-shadow: 1px 2px 14px -7px rgba(0,0,0,0.57);
   transition: 0.2s ease-in-out;
+  opacity: 0.5;
 }
 #commission:hover{
-  background:black;
-  color:white;
+  opacity: 1;
   transition: 0.2s ease-in-out;
 }
 
@@ -75,7 +111,6 @@
 
 }
 #commission a:hover{
-  color:white;
   transition: 0.1s ease-in-out;
 
 }
@@ -84,22 +119,19 @@
   margin-left: 50px;
 }
 
-.nav a{
+.nav .link{
   text-decoration: none;
   color: black;
   opacity:1;
   transition: 0.2s ease-in;
   padding: 10px;
 }
-.nav a:hover, .fa-brands:hover{
-  color: black;
-  cursor: pointer;
-  transition: 0.2s ease-in;
-  opacity:1;
-  border-radius: 500px;
+
+.nav .linkContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
-
 .inputField{
   width: 300px;
   display: flex;
@@ -361,39 +393,68 @@ margin:50px 0px;
 /*FOOTER ======================================*/
 
 footer{
-  padding:10px 0px  10px 0px;
-  margin: auto;
+  padding:0px;
   width:100%;
+  height: 150px;
+  position:relative;
+  bottom: 0px;
   background-color: var(--primary1);
-
+  box-sizing: border-box;
 }
 
 .footer-1{
   width:80%;
-  height:100px;
+  height:100%;
   margin:auto;
+  padding: 0;
 }
 .footer-title{
   margin:auto;
-  width:90%;
+  width:100%;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 100%;
+  align-items: center;
 }
 
-.footer-sns{
+.footer-right{
   display:flex;
-  flex-direction: row;
-
+  padding:2.5% 0px;
+  width:20%;
+  height:60%;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0;
 }
-
-
+.footer-right p{
+  padding: 0;
+  margin: 0;
+}
+.sns-logo{
+  padding: 0px;
+  margin: 0px;
+}
+.footer-right a{
+  text-decoration: none;
+  color: black;
+  opacity:1;
+  transition: 0.1s ease-in-out;
+  border-radius: 600px;
+  margin-left: 20px;
+}
+.footer-right a:hover, .fa-brands:hover{
+  color: var(--primary2-dark2);
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  opacity:1;
+}
 .footer-content{
   width:90%;
   display: flex;
   flex-direction: row;
-  margin:auto;
-  height:80%;
+  margin:0px;
 }
 .footer-about{
   width:50%;
@@ -439,31 +500,47 @@ footer form{
 
 
 /*MEDIA QUERY */
-@media (max-width:450px){
+@media (max-width:525px){
   
   .wepo-logo{
-    width: 70px;
-    margin-left: 10px;
+    margin:0px;
+    width: 3rem;
   }
   .nav{
-    height: 20px
-  }
-  .nav-sns i{
-    width: 10vw;
-    font-size: 5vw;
-  }
-  .tagline-left{
-    width:400px;
-  }
-  .tagline h1{
-    font-size: 40px;
-  }
-  .hero-container{
-    padding-top:80px ;
-  }
+    height: 40px;
+    position: sticky;
+    top:0px;
+    z-index: 100;
+    padding: 0px 20px;
+    display: flex;
 
-  footer form{
-    width: 80vw;
-    margin:auto;
   }
+  .icon{
+    font-size: 1.5rem;
+    color:black;
+    display: unset;
+  }
+  .navRight{
+    background: black;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+    width:20px;
+  }
+  .heroContainer{
+    all:unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    box-sizing: border-box;
+  }
+  .footer{
+    position:absolute;
+    bottom: 0px;
+    box-sizing: border-box;
+  }
+  
 }
