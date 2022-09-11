@@ -23,6 +23,7 @@ function Hero(){
     const boxRef = useRef()
     const heroRef = useRef()
     const heroBRef = useRef()
+    const ttRef = useRef()
 
     useEffect(()=>{
         gsap.from(boxRef.current, {opacity:0, duration:1,translateY:10})
@@ -31,14 +32,30 @@ function Hero(){
         gsap.to(heroRef.current, {opacity:1, duration:2.5, translateX:0})
         gsap.from(heroBRef.current, {opacity:0, duration:1, translateX:-40} )
         gsap.to(heroBRef.current, {opacity:1, duration:1.5, translateX:0})
-          
-    })
+        let tl = gsap.timeline({paused:true, repeat:-1,  repeatDelay:1})
+
+        var items = document.querySelectorAll("#copywrite"), length = items.length
+        //tl.to(ttRef.current, {y:20, duration:1.5})
+        let duration = 1
+        for (let i =0; i<length; i++){
+            tl.from(items[i], 1, {y:40, opacity:0})
+            tl.to(items[i], 4, { y: 0, opacity: 1})
+            tl.to(items[i], duration*0.7, { y: 0, opacity: 0, })
+        }
+        tl.play()
+        
+    },[])
 
     return(
       <>
       <div className = "heroContainer">
       <div ref={heroBRef} className="heroLeft">
-        <h1 id="copywrite" >Compenser</h1>
+        <div className="switch">
+
+            <h1 ref={ttRef} id="copywrite" >Teka</h1>
+            <h1 ref={ttRef} id="copywrite" >Compenser</h1>
+            <h1 ref={ttRef} id="copywrite" >Luka</h1>
+        </div>
         <h1 id="end">bor nayo cho!</h1>
         <p>Trouvez des produits selon votre budget, Evitez les malaria, comparez les prix des produits, le tout dans une seule application.</p>
         <p>Vous n’acheterez plus les produits d’occasion de la même manière.</p>
