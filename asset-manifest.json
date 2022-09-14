@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/wepoHomepage/static/css/main.afbbb0ab.css",
-    "main.js": "/wepoHomepage/static/js/main.e3d53d30.js",
+    "main.css": "/wepoHomepage/static/css/main.84dc228f.css",
+    "main.js": "/wepoHomepage/static/js/main.4538e606.js",
     "static/js/787.70a4d118.chunk.js": "/wepoHomepage/static/js/787.70a4d118.chunk.js",
-    "static/media/lady.png": "/wepoHomepage/static/media/lady.6a6f1a632cf3cbd0a255.png",
+    "static/media/lady.png": "/wepoHomepage/static/media/lady.d7932b150d7d825c4eb9.png",
     "static/media/1.png": "/wepoHomepage/static/media/1.f9731869f5e755c82e36.png",
     "static/media/phone3.png": "/wepoHomepage/static/media/phone3.711ed2ec33e79d774824.png",
     "static/media/phone2.png": "/wepoHomepage/static/media/phone2.ca30c106a301e994eb4d.png",
@@ -14,12 +14,12 @@
     "static/media/sparker.svg": "/wepoHomepage/static/media/sparker.08e1ce45ba49ad0c09d418248ea493b9.svg",
     "index.html": "/wepoHomepage/index.html",
     "static/media/stick.svg": "/wepoHomepage/static/media/stick.c6c8be87a688bf69841af661e4ee2a10.svg",
-    "main.afbbb0ab.css.map": "/wepoHomepage/static/css/main.afbbb0ab.css.map",
-    "main.e3d53d30.js.map": "/wepoHomepage/static/js/main.e3d53d30.js.map",
+    "main.84dc228f.css.map": "/wepoHomepage/static/css/main.84dc228f.css.map",
+    "main.4538e606.js.map": "/wepoHomepage/static/js/main.4538e606.js.map",
     "787.70a4d118.chunk.js.map": "/wepoHomepage/static/js/787.70a4d118.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.afbbb0ab.css",
-    "static/js/main.e3d53d30.js"
+    "static/css/main.84dc228f.css",
+    "static/js/main.4538e606.js"
   ]
 }
