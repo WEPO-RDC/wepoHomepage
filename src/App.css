@@ -38,24 +38,71 @@ header{
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 0.000015px 3px 2px rgba(0, 0, 0, 0.234);
-  z-index: 100;
+  z-index: 1;
   background-color: var(--primary1);
   position: sticky;
   top:0;
 }
 .responsiveNav{
   position:fixed;
-  top:40px;
-  z-index: 1;
-  width:100%;
+  top:0px;
+  z-index: 400;
   background:var(--primary1);
+  width:100vw;
+  height:fit-content;
+  transition: ease-in-out 5s;
+}
+
+
+#close{  
+  all: unset;
+  z-index: 400;
+  width: 40px;
+  border: 2px solid black;
+  padding: 5px 10px;
+  height:fit-content;
+  position:absolute;
+  top: 5px;
+  right:10px;
+}
+#close:hover{
+  color:var(--primary1);
+  background-color: black;
+  cursor: pointer;
+}
+
+.sns-logo{
+  display: flex;
+  gap:20px;
+  margin: auto;
+  
+  padding-top: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sns-logo a{
+  color:black;
+  font-size: 20px;
+  opacity: 0.6;
+
+}
+
+.sns-logo a:hover{
+  color: black;
+  opacity: 1;
+}
+  .responsiveEl{
+    margin-top:7rem;
+    margin-bottom: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap:2rem;
 }
 
-.responsiveNav a{
+
+.responsiveEl a{
   font-size: 3rem;
   text-decoration: none;
   color: black;
@@ -204,14 +251,19 @@ header{
   line-height: 130%;
 }
 #copywrite{
+  line-height: 109%;
+  font-size: 70px;
+  position:absolute;
+  margin:0px;
+  padding:0px;
+
+}
+.switch{
   font-size: 70px;
   font-weight: bold;
   color: var(--primary1);
-  margin:0px;
-  padding:0px;
-  line-height: 109%;
-  position:absolute;
 
+  
 }
 #end{
   font-size: 60px;
@@ -502,6 +554,11 @@ footer form{
 /*MEDIA QUERY */
 @media (max-width:525px){
   
+
+  body{
+    width: 100vw;
+    box-sizing: border-box;
+  }
   .wepo-logo{
     margin:0px;
     width: 3rem;
@@ -529,18 +586,130 @@ footer form{
     box-sizing: border-box;
     width:20px;
   }
+
   .heroContainer{
     all:unset;
     display: flex;
     justify-content: center;
     align-items: center;
-    width:50%;
+    width:85vw;
+    margin:auto;
     box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .heroRight{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+  }
+
+  .heroRight img{
+    all:unset;
+    width:100%;
+    position: relative;
+    left: -40px;
+  }
+  .switch{
+    width:90%;
+    height:40px;
+    box-sizing: border-box;
+    position:relative;
+    margin:2.5rem auto 0.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #copywrite{
+    font-size: 3rem;
+    color: var(--primary1);
+    text-align: center;
+  }
+  #end{
+    width:90%;
+    margin:auto;
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .heroLeft{
+    all:unset;
+    width:100%;
+  }
+
+  .heroLeft p{
+    text-align: justify;
+  }
+  .CTA-container{
+    margin:2rem auto;
+  }
+  .CTA{
+    width: 90%;
+    margin:auto;
+  }
+  .benefit{
+    box-sizing: border-box;
+    width:90vw;
+    padding:0px;
+    margin: 0px auto;
+  }
+
+  .benefit p{
+    all:unset;
+  }
+.left{
+  all:unset;
+}
+.right{
+  all:unset;
+}
+  .xp{
+    all:unset;
+    width:100%;
+    margin:0px auto;
+    padding:0px;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .xp h2{
+    font-size: 1.7rem;
+    margin:0px;
+    padding: 0px;
+    padding:1rem 1rem;
+  }
+  .xp p{
+    all:unset;
+  }
+  .solutionText{
+    all:unset;
+    margin:0px;
+    padding:0px;
+  }
+  .solutionText p{
+    all:unset;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .stick{
+    display: none;
+    }
+  .phone{
+    width:100%;
+    margin:0px auto;
+    padding: 0px;
   }
   .footer{
     position:absolute;
     bottom: 0px;
     box-sizing: border-box;
+  }
+  .footer-right{
+    width:100%;
   }
   
 }

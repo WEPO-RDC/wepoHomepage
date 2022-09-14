@@ -8,13 +8,14 @@ import phone4 from './../assets/phone4.png'
 import sparker from './../assets/sparker.svg'
 import {gsap} from 'gsap'
 import { useRef, useEffect } from "react"
+import { Reddit } from "@mui/icons-material"
 
 
 function Cta(props){
     
     return(
-        <div>
-            <button className={props.class}>Rejoignez la liste d’attente</button>
+        <div className="CTA-container">
+            <button className={props.a}>Rejoignez la liste d’attente</button>
         </div>
     )
 }
@@ -32,15 +33,16 @@ function Hero(){
         //gsap.to(heroRef.current, {opacity:1, duration:2.5, translateX:0})
         //gsap.from(heroBRef.current, {opacity:0, duration:1, translateX:-40} )
         //gsap.to(heroBRef.current, {opacity:1, duration:1.5, translateX:0})
-        let tl = gsap.timeline({paused:true, repeat:-1,  repeatDelay:1})
+        let tl = gsap.timeline({paused:true, repeat:-1,  repeatDelay:0.5})
 
         var items = document.querySelectorAll("#copywrite"), length = items.length
         //tl.to(ttRef.current, {y:20, duration:1.5})
         let duration = 1
         for (let i =0; i<length; i++){
-            tl.from(items[i], 1, {y:40, opacity:0})
-            tl.to(items[i], 4, { y: 0, opacity: 1})
-            tl.to(items[i], duration*0.7, { y: 0, opacity: 0, })
+            tl.from(items[i], { y:-20, opacity:0})
+            tl.to(items[i],{duration:1.5, y: 0, opacity: 1, ease:"elastic",delay:0.1})
+            tl.to(items[i],{duration:2, y: 0, opacity: 1})
+            tl.to(items[i], { duration:0.5, y: 0, opacity: 0, delay:0 })
         }
         tl.play()
         
@@ -59,7 +61,7 @@ function Hero(){
         <h1 id="end">bor nayo cho!</h1>
         <p>Trouvez des produits selon votre budget, Evitez les malaria, comparez les prix des produits, le tout dans une seule application.</p>
         <p>Vous n’acheterez plus les produits d’occasion de la même manière.</p>
-        <Cta class="CTA"/>
+        <Cta a="CTA"/>
       </div>
       <div  ref={heroRef} className="heroRight">
         <img src={ladyphone}></img>
@@ -106,7 +108,7 @@ function Hero(){
     <div className="lastCTA">
         <img className="sparker" src={sparker}></img>
         <h3>Faites parti de ceux qui dealent avec nous</h3>
-        <Cta class="CTA xx"/>
+        <Cta a="CTA xx"/>
     </div>
   </>
     )

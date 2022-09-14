@@ -15,7 +15,7 @@ function Navbar(props){
                 <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo"alt="logo-wepo"src={logo}/></a>
 
                 {
-                props.screenWidth >530 
+                props.screenWidth >600 
                     ?
                 <div className="navRight">
                     <div className = "linkContainer">
@@ -33,18 +33,37 @@ function Navbar(props){
                     </div>
                 </div>
                     :
-                    <a href="javascript:void(0);" class="icon" onClick={toggle}>
-    <i class="fa fa-bars"/>
+                    <a href="#" className="icon" onClick={toggle}>
+    <i className="fa fa-bars"/>
                 </a>
                     }
             </nav>
             {
                 navState &&
 
-                <div style={{height:window.innerHeight/2}} className="responsiveNav">
+                <div style={{height:window.innerHeight}} className="responsiveNav">
+                        <button id="close" onClick={toggle}>Close</button>
+                    <div className="responsiveEl">
+
             <a className="link" href="https://www.instagram.com/wearewepo" target="_blank" >About Us{/*<i className="fa-brands fa-instagram fa-xl"></i>*/}</a>
                         <a className="link" href="https://www.facebook.com/wearewepo" target="_blank" >Astuces{/*<i className="fa-brands fa-facebook fa-xl"></i>*/}</a>
                         <a className="link" href="https://wa.me/821027026758" target="_blank" >Contacts{/*<i className="fa-brands fa-whatsapp fa-xl"></i>*/}</a>
+                    </div>
+                    <div className="sns-logo">
+
+                        <a href="https://www.instagram.com/wearewepo" target="_blank" >
+<span>
+
+                            <i className="fa-brands fa-instagram fa-xl"/>
+</span>
+                            </a>
+                        <a href="https://www.facebook.com/wearewepo" target="_blank" >
+                            <i className="fa-brands fa-facebook fa-xl"/>
+                        </a>
+                        <a href="https://wa.me/821027026758" target="_blank" >
+                            <i className="fa-brands fa-whatsapp fa-xl"/>
+                        </a>
+                        </div>
             </div>
             }
         </header>
