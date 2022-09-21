@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+
+
+
 :root{
 
     --primary1-light:#FAF7E0;
@@ -50,7 +54,7 @@ header{
   background:var(--primary1);
   width:100vw;
   height:fit-content;
-  transition: ease-in-out 5s;
+  transition: ease-in-out 0.5s;
 }
 
 
@@ -58,17 +62,17 @@ header{
   all: unset;
   z-index: 400;
   width: 40px;
-  border: 2px solid black;
   padding: 5px 10px;
   height:fit-content;
   position:absolute;
   top: 5px;
   right:10px;
+  opacity:0.5
 }
 #close:hover{
   color:var(--primary1);
-  background-color: black;
   cursor: pointer;
+  opacity:1
 }
 
 .sns-logo{
@@ -81,17 +85,19 @@ header{
   justify-content: center;
 }
 
-.sns-logo a{
+.sns-logo i{
   color:black;
-  font-size: 20px;
-  opacity: 0.6;
+  font-size: 30px;
+  opacity: 0.4;
+  text-decoration: none;
 
 }
 
-.sns-logo a:hover{
-  color: black;
-  opacity: 1;
+.sns-logo i:hover{
+  color:black;
+  opacity:1
 }
+
   .responsiveEl{
     margin-top:7rem;
     margin-bottom: 10rem;
@@ -241,29 +247,50 @@ header{
   align-items: flex-start;
   text-align: left;
 }
-.heroLeft p{
+.heroLeft .text{
   text-align: left;
   width: 100%;
   flex-wrap: wrap;
   box-sizing: border-box;
   height:auto;
-  font-size: 15px;
-  line-height: 130%;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
 }
-#copywrite{
-  line-height: 109%;
-  font-size: 70px;
-  position:absolute;
-  margin:0px;
-  padding:0px;
 
-}
-.switch{
-  font-size: 70px;
+
+.slider div{
+  font-family: 'Reem Kufi Ink', sans-serif;
   font-weight: bold;
-  color: var(--primary1);
+  color: white; 
+  height:50px;
+  margin-bottom:50px ;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 3rem;
+  background: var(--primary1);
+  padding: 4px 10px;
 
-  
+}
+.slider{
+  height: 50px;
+  overflow: hidden;
+}
+.slide-1{
+  animation: slide 10s linear infinite;
+
+}
+@keyframes slide {
+  0% {margin-top:-150px;}
+  3%{margin-top:-100px}
+  33%{margin-top: -100px;}
+  37% {margin-top:-50px;}
+  66% {margin-top:-50px;}
+  69% {margin-top:0px;}
+  100% {margin-top:0px;}
 }
 #end{
   font-size: 60px;
@@ -272,14 +299,10 @@ header{
   margin-bottom: 2rem;
   padding:0px;
   line-height: 115%;
+  font-family: 'Reem Kufi Ink', sans-serif;;
 
 }
-.switch{
-  width:100%;
-  height: 15%;
-  margin:0px;
-  padding:0px;
-}
+
 .CTA{
   all:unset;
   padding: 0.7rem;
@@ -442,6 +465,25 @@ margin:50px 0px;
   justify-content: center;
   align-items: center;
 }
+/*FORM CONTAINER*/
+.formContainer{
+  background-color: var(--primary1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  border: 1px solid black;
+  top:3%;
+  left:30%;
+  z-index: 3;
+  padding-bottom: 30px;
+  align-self: center;
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*FOOTER ======================================*/
 
 footer{
@@ -552,13 +594,19 @@ footer form{
 
 
 /*MEDIA QUERY */
-@media (max-width:525px){
+
+
+
+/*FOR MOBILE DEVICE*/
+@media only screen and (max-width:600px){
   
 
   body{
     width: 100vw;
     box-sizing: border-box;
   }
+
+  /*NAV BAR */
   .wepo-logo{
     margin:0px;
     width: 3rem;
@@ -587,6 +635,8 @@ footer form{
     width:20px;
   }
 
+
+  /*HERO CONTENT*/
   .heroContainer{
     all:unset;
     display: flex;
@@ -614,8 +664,6 @@ footer form{
     left: -40px;
   }
   .switch{
-    width:90%;
-    height:40px;
     box-sizing: border-box;
     position:relative;
     margin:2.5rem auto 0.5rem auto;
@@ -623,11 +671,10 @@ footer form{
     align-items: center;
     justify-content: center;
   }
-  #copywrite{
-    font-size: 3rem;
-    color: var(--primary1);
-    text-align: center;
+  h2{
+    font-size: 10px;
   }
+
   #end{
     width:90%;
     margin:auto;
@@ -713,3 +760,5 @@ footer form{
   }
   
 }
+
+/*FOR TABLETTE*/

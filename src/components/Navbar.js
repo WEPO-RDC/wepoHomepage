@@ -1,6 +1,6 @@
 import { useState } from "react"
 import logo from "../WEPOLOGOSVG.svg"
-
+import {AiFillCloseCircle} from 'react-icons/ai'
 
 function Navbar(props){
     const [navState, setNavState] = useState(false)
@@ -12,12 +12,12 @@ function Navbar(props){
     return(
         <header>
             <nav className="nav">
-                <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo"alt="logo-wepo"src={logo}/></a>
+            <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo"alt="logo-wepo"src={logo}/></a>
 
                 {
-                props.screenWidth >600 
+                    props.screenWidth >600 
                     ?
-                <div className="navRight">
+                    <div className="navRight">
                     <div className = "linkContainer">
                     
                     <div className="nav-sns">
@@ -40,12 +40,12 @@ function Navbar(props){
             </nav>
             {
                 navState &&
-
+                
                 <div style={{height:window.innerHeight}} className="responsiveNav">
-                        <button id="close" onClick={toggle}>Close</button>
+                    <AiFillCloseCircle id="close" onClick={toggle} color="black"/>
                     <div className="responsiveEl">
 
-            <a className="link" href="https://www.instagram.com/wearewepo" target="_blank" >About Us{/*<i className="fa-brands fa-instagram fa-xl"></i>*/}</a>
+                        <a className="link" href="https://www.instagram.com/wearewepo" target="_blank" >About Us{/*<i className="fa-brands fa-instagram fa-xl"></i>*/}</a>
                         <a className="link" href="https://www.facebook.com/wearewepo" target="_blank" >Astuces{/*<i className="fa-brands fa-facebook fa-xl"></i>*/}</a>
                         <a className="link" href="https://wa.me/821027026758" target="_blank" >Contacts{/*<i className="fa-brands fa-whatsapp fa-xl"></i>*/}</a>
                     </div>
