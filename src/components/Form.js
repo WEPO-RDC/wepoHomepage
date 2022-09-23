@@ -1,22 +1,19 @@
 import React, {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close';
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
+
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import { ManageHistoryOutlined } from '@mui/icons-material';
 import {primaryColor, primaryColorLight, primaryColorSuperLight, secondaryColor, lineColor, confirmColor} from "../styles/magStyle"
-import { authorizedbuyersmarketplace } from 'googleapis/build/src/apis/authorizedbuyersmarketplace';
-
+import axios from 'axios';
 //RAW
 //const {google} = require('googleapis')
 
 
+const url = 'https://sheet.best/api/sheets/6d046578-d62e-4f8e-99a7-ba3bfaa431fa'
 const spreadSheet = process.env.REACT_APP_SS_ID
 const ApiKey = process.env.REACT_APP_SHEET_API_KEY
 const CLIENT_ID = process.env.REACT_APP_SHEET_CLIENT_ID
@@ -30,13 +27,9 @@ function Form(props) {
         phone: '',
         occupation:''
     })
-
+    const [alt,setAlt] = useState(props.alert)
     
-    
-    async function main(){
-    }
-    
-    const [alert, setAlert] = useState (false)
+  
 
     //const [formStatus, setFormStatus] = props.formStatus
     function handleChange(e){
@@ -46,86 +39,60 @@ function Form(props) {
         }))
     }
 
-    async function makeApiCall(){
+    /*
+    function makeApiCall(){
+      var params = {
 
-      const authClient = await authorize()
-
-      var request =  {
         spreadsheetId: spreadSheet,
         range: "Sheet1!A:G",
         valueInputOption: "RAW",
-        insertDataOption:"INSERT_ROWS",
-        resource:{values:[input.nom,input,prenom, input.email, input.occupation]
-
-        },
-        auth: authClient,
+        insertDataOption:"INSERT_ROWS"
       }
-        try{
-          const response = (await sheets.spreadsheets.values.append(request)).data;
-          response.then(function(response){
-            console.log(response.result)
-          })
-        } catch(err){
-          console.error(err)
+        var valueRangeBody = {
+          values:[input.nom,input.prenom, input.email, input.occupation]
         }
-      
-    }
+        var request = gapi.clien.sheets.spreadsheets.value.append(params, valueRangeBody)
+        request.then(function(response){
+          console.log(response.result)
+        }, function(reason){
+          console.error('error:' + reason.result.error.message)
+        })
+        
+      }
+      */
 
-    function initClient(){
-      var API_KEY = ApiKey
-      var clientId = CLIENT_ID
-      var SCOPE = ""
 
-      gapi.client.init({
-        "apiKey": apiKey,
-        "clientId": clientId,
-        'scope': SCOPE,
-        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4']
-      }).then(function(){
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get())
-      })
-    }
+    
+
+   
+    
+
+    
     ///function updateValues(p)
     function handleSubmit(e){
         e.preventDefault();
         try{
-
-          makeApiCall()
+          axios.post(url, input)
+            .then(response => {
+            console.log(response);
+          })
           setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
-          setAlert(true)
-          
+            props.alertOn()
           props.toggleOff()
         }catch(err){
-          console.log(err.message)
+          console.log("I am sorry" + err.message)
         }
 
     }
   return (
     <div className="okform">
-        {alert && (<Alert
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={() => {
-                setAlert(false);
-              }}
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
-          sx={{ mb: 2 }}
-        >
-          Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.
-        </Alert>)}
+        
         <div className='formContainer'>
 
         <form className='form' onSubmit={
           handleSubmit}>
         <h2>
-            Entrez vos informations pour faire partie de la liste d'attente.
+            Entrez vos informations pour faire parti de la liste d'attente.
         </h2>
             <div className="inputField">
               <TextField
@@ -173,7 +140,7 @@ function Form(props) {
                 />
             </div>
             <div className="radioN">
-              <FormLabel id="demo-radio-buttons-group-label">Lequel vous décrit le mieux ?</FormLabel>
+              <FormLabel id="demo-radio-buttons-group-label">Qu'est-ce qui vous décrit le mieux ?</FormLabel>
                 
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
@@ -192,13 +159,10 @@ function Form(props) {
                 <FormControlLabel className='rara' value="Autre" name="occupation" onChange={handleChange} control={<Radio />} label="Autre" />
               </RadioGroup>
             </div>
-            <Button color= "primary" sx={{color:'white', background:primaryColor}} type='submit' className='CTA' variant="contained">s'inscrire sur la liste d'attente</Button>
+            <Button  color="primary" width={300} sx={{color:'white', marginTop:'1.5rem', background:primaryColor, width:300}} type='submit' className='CTA' variant="contained">S'inscrire</Button>
 
         </form>
         </div>
-        {/*<p>{input.nom}</p>
-        <p>{input.email}</p>
-        <p>{input.phone}</p>*/}
     </div>
   )
 }

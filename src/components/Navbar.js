@@ -15,7 +15,7 @@ function Navbar(props){
             <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo"alt="logo-wepo"src={logo}/></a>
 
                 {
-                    props.screenWidth >600 
+                    props.screenWidth > 600 
                     ?
                     <div className="navRight">
                     <div className = "linkContainer">
@@ -34,7 +34,7 @@ function Navbar(props){
                 </div>
                     :
                     <a href="#" className="icon" onClick={toggle}>
-    <i className="fa fa-bars"/>
+    <i className="fa fa-bars"/>X
                 </a>
                     }
             </nav>

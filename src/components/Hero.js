@@ -71,10 +71,10 @@ function Hero(props){
       </div>
     </div>
     <div className="divide">
-      <h2>Une nouvelle façon de dealer...</h2>
+      <h2>Nous vous offrons une nouvelle façon de dealer...</h2>
     </div>
     <div className="benefit">
-      <div className='xp'>
+      <div className='xp reverse'>
         <img className="stick left"src={stick}></img>
         <img className="phone"src={phone1}></img>
         <div className="solutionText">
@@ -90,7 +90,7 @@ function Hero(props){
         </div>
         <img className="phone"src={phone2}></img>
       </div>
-      <div className='xp'>
+      <div className='xp reverse'>
         <img className="stick left"src={stick}></img>
         <img className="phone"src={phone3}></img>
         <div className="solutionText">
