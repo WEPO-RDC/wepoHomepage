@@ -10,7 +10,12 @@ import {useEffect, useState} from 'react';
 function App() {
     const [responsive, setResponsive] = useState("web")
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+    const [showForm, setShowForm] = useState(false)
 
+
+    function toggleShow(){
+      showForm ? setShowForm(false) : setShowForm(true)
+    }
     useEffect(() => {
 
         function watchWidth() {
@@ -30,9 +35,7 @@ function App() {
     return (
         <div className="App">
             <Navbar responsive={responsive} screenWidth={screenWidth} />
-            <Form />
-
-            <Hero />
+            <Hero toggle = {toggleShow} show = {showForm} />
             <Footer />
         </div>
     );

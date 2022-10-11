@@ -1,6 +1,6 @@
 import {useState} from "react"
 import logo from "../WEPOLOGOSVG.svg"
-
+import { AiFillCloseCircle } from "react-icons/ai"
 
 function Navbar(props) {
     const [navState, setNavState] = useState(false)
@@ -36,7 +36,7 @@ function Navbar(props) {
                 </div>
                     :
                     <a href="#" className="icon" onClick={toggle}>
-    <i className="fa fa-bars"/>X
+    <i className="fa fa-bars"/>
                 </a>
                     }
             </nav>
@@ -47,19 +47,19 @@ function Navbar(props) {
                     <AiFillCloseCircle id="close" onClick={toggle} color="black"/>
                     <div className="responsiveEl">
 
-            <a className="link" href="https://www.instagram.com/wearewepo" target="_blank" >About Us{/*<i className="fa-brands fa-instagram fa-xl"></i>*/}</a>
-                        <a className="link" href="https://www.facebook.com/wearewepo" target="_blank" >Astuces{/*<i className="fa-brands fa-facebook fa-xl"></i>*/}</a>
+                        <a className="link" href="https://www.instagram.com/wepo.rdc" target="_blank" >About Us{/*<i className="fa-brands fa-instagram fa-xl"></i>*/}</a>
+                        <a className="link" href="https://www.facebook.com/wepo.rdc" target="_blank" >Astuces{/*<i className="fa-brands fa-facebook fa-xl"></i>*/}</a>
                         <a className="link" href="https://wa.me/821027026758" target="_blank" >Contacts{/*<i className="fa-brands fa-whatsapp fa-xl"></i>*/}</a>
                     </div>
                     <div className="sns-logo">
 
-                        <a href="https://www.instagram.com/wearewepo" target="_blank" rel="noreferrer">
+                        <a href="https://www.instagram.com/wepo.rdc" target="_blank" rel="noreferrer">
 <span>
 
                             <i className="fa-brands fa-instagram fa-xl" />
 </span>
                         </a>
-                        <a href="https://www.facebook.com/wearewepo" target="_blank" rel="noreferrer">
+                        <a href="https://www.facebook.com/wepo.rdc" target="_blank" rel="noreferrer">
                             <i className="fa-brands fa-facebook fa-xl" />
                         </a>
                         <a href="https://wa.me/821027026758" target="_blank" rel="noreferrer">

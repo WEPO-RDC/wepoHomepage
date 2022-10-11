@@ -1,15 +1,7 @@
 import logo from "../WEPOLOGOSVG.svg"
 
 
-function Signup() {
-    return (
-        <form>
-            <input />
-            <input />
-            <button>Submit</button>
-        </form>
-    )
-}
+
 
 function Footer() {
     return (

@@ -7,7 +7,7 @@ import phone4 from './../assets/phone4.png'
 import sparker from './../assets/sparker.svg'
 import {gsap} from 'gsap'
 import {useEffect, useState, useRef} from "react"
-
+import Form from "./Form"
 
 function Cta(props){
 
@@ -21,10 +21,6 @@ function Cta(props){
 }
 
 function Hero(props) {
-    const boxRef = useRef()
-    const heroRef = useRef()
-    const heroBRef = useRef()
-    const ttRef = useRef()
 
     useEffect(() => {
         //gsap.from(boxRef.current, {opacity:0, duration:1,translateY:10})
@@ -37,7 +33,6 @@ function Hero(props) {
 
         var items = document.querySelectorAll("#copywrite"), length = items.length
         //tl.to(ttRef.current, {y:20, duration:1.5})
-        let duration = 1
         for (let i = 0; i < length; i++) {
             tl.from(items[i], {y: -20, opacity: 0})
             tl.to(items[i], {duration: 1.5, y: 0, opacity: 1, ease: "elastic", delay: 0.1})
@@ -50,6 +45,8 @@ function Hero(props) {
 
     return(
       <>
+      { props.show && <Form close = {props.toggle}/>
+      }
       <div className = "heroContainer">
       <div  className="heroLeft">
         <div className="slider">
@@ -64,8 +61,8 @@ function Hero(props) {
         <p className="text">Vous n’acheterez plus les produits d’occasion de la même manière.</p>
         <Cta a="CTA" state={props.toggle}/>
       </div>
-      <div  ref={heroRef} className="heroRight">
-        <img src={ladyphone}></img>
+      <div  className="heroRight">
+        <img alt="lady holding a phone"src={ladyphone}></img>
       </div>
     </div>
     <div className="divide">
@@ -73,8 +70,8 @@ function Hero(props) {
     </div>
     <div className="benefit">
       <div className='xp reverse'>
-        <img className="stick left"src={stick}></img>
-        <img className="phone"src={phone1}></img>
+        <img alt="benefit" className="stick left"src={stick}></img>
+        <img alt="phone" className="phone"src={phone1}></img>
         <div className="solutionText">
           <h2>Trouvez des produits selon vos conditions.</h2>
           <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
@@ -86,10 +83,10 @@ function Hero(props) {
           <h2>Trouvez des produits selon vos conditions.</h2>
           <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
         </div>
-        <img className="phone"src={phone2}></img>
+        <img alt="phone" className="phone"src={phone2}></img>
       </div>
       <div className='xp reverse'>
-        <img className="stick left"src={stick}></img>
+        <img alt="phone" className="stick left"src={stick}></img>
         <img className="phone"src={phone3}></img>
         <div className="solutionText">
           <h2>Trouvez des produits selon vos conditions.</h2>
@@ -97,17 +94,17 @@ function Hero(props) {
         </div>
       </div>
       <div className='xp'>
-        <img className="stick right"src={stick}></img>
+        <img alt="phone" className="stick right"src={stick}></img>
         <div className="solutionText">
           <h2>Trouvez des produits selon vos conditions.</h2>
           <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
         </div>
-        <img className="phone"src={phone4}></img>
+        <img alt="phone" className="phone"src={phone4}></img>
       </div>
     </div>
 
             <div className="lastCTA">
-                <img className="sparker" src={sparker}></img>
+                <img alt="phone" className="sparker" src={sparker}></img>
                 <h3>Faites parti de ceux qui dealent avec nous</h3>
                 <Cta a="CTA xx" state={props.toggle}  />
             </div>

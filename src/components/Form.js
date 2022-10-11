@@ -8,6 +8,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import {primaryColor, primaryColorLight, primaryColorSuperLight, secondaryColor, lineColor, confirmColor} from "../styles/magStyle"
 import axios from 'axios';
+import { AiFillCloseCircle } from "react-icons/ai"
+
+
+
+
 //RAW
 //const {google} = require('googleapis')
 import 'react-toastify/dist/ReactToastify.css';
@@ -53,29 +58,20 @@ function Form(props) {
         }catch(err){
           console.log("I am sorry" + err.message)
         }
+        props.close()
 
     }
 
     return (
         <div className="okform">
-            {alt && (<Alert
-                action={
-                    <IconButton
-                        aria-label="close"
-                        color="inherit"
-                        size="small"
-                        onClick={() => {
-                            setAlt(false);
-                        }}
-                    >
-                        <CloseIcon fontSize="inherit" />
-                    </IconButton>
-                }
-                sx={{mb: 2}}
-            >
-                Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.
-            </Alert>)}
+
+                {/*Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.*/}
+            
             <form className='form' onSubmit={handleSubmit}>
+
+            <AiFillCloseCircle id="close" onClick={props.close} color="black"/>
+
+
                 <h2>
                     Entrez vos informations pour faire partie de la liste d'attente.
                 </h2>

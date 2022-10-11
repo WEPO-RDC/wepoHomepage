@@ -1,8 +1,3 @@
-import React, {component} from "react"
-
-
-
-
 
 let primaryColor = "#209BFF"
 let primaryColorLight = "#3DBDFF"
