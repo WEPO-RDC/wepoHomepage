@@ -6,19 +6,21 @@ import phone3 from './../assets/phone3.png'
 import phone4 from './../assets/phone4.png'
 import sparker from './../assets/sparker.svg'
 import {gsap} from 'gsap'
-import {useEffect, useRef} from "react"
+import {useEffect, useState, useRef} from "react"
 
 
-function Cta(props) {
+function Cta(props){
 
-    return (
+
+    
+    return(
         <div className="CTA-container">
-            <button className={props.a}>Rejoignez la liste d’attente</button>
+            <button onClick = {props.state} className={props.a}>Rejoignez la liste d’attente</button>
         </div>
     )
 }
 
-function Hero() {
+function Hero(props) {
     const boxRef = useRef()
     const heroRef = useRef()
     const heroBRef = useRef()
@@ -46,72 +48,68 @@ function Hero() {
 
     }, [])
 
-    return (
-        <>
-            <div className="heroContainer">
-                <div ref={heroBRef} className="heroLeft">
-                    <div className="switch">
+    return(
+      <>
+      <div className = "heroContainer">
+      <div  className="heroLeft">
+        <div className="slider">
+            <div className="slide-1"  >Teka</div>
+            <div className="slide-1" >Compenser</div>
+            <div  className="slide-3" >Luka</div>
+            <div  className="slide-3" ></div>
 
-                        <h1 ref={ttRef} id="copywrite">Teka</h1>
-                        <h1 ref={ttRef} id="copywrite">Compenser</h1>
-                        <h1 ref={ttRef} id="copywrite">Luka</h1>
-                    </div>
-                    <h1 id="end">bor nayo cho!</h1>
-                    <p>Trouvez des produits selon votre budget, Evitez les malaria, comparez les prix des produits, le
-                        tout dans une seule application.</p>
-                    <p>Vous n’acheterez plus les produits d’occasion de la même manière.</p>
-                    <Cta a="CTA" />
-                </div>
-                <div ref={heroRef} className="heroRight">
-                    <img src={ladyphone}></img>
-                </div>
-            </div>
-            <div className="divide">
-                <h2>Une nouvelle façon de dealer...</h2>
-            </div>
-            <div className="benefit">
-                <div className='xp'>
-                    <img className="stick left" src={stick}></img>
-                    <img className="phone" src={phone1}></img>
-                    <div className="solutionText">
-                        <h2>Trouvez des produits selon vos conditions.</h2>
-                        <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant
-                            découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-                    </div>
-                </div>
-                <div className='xp'>
-                    <img className="stick right" src={stick}></img>
-                    <div className="solutionText">
-                        <h2>Trouvez des produits selon vos conditions.</h2>
-                        <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant
-                            découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-                    </div>
-                    <img className="phone" src={phone2}></img>
-                </div>
-                <div className='xp'>
-                    <img className="stick left" src={stick}></img>
-                    <img className="phone" src={phone3}></img>
-                    <div className="solutionText">
-                        <h2>Trouvez des produits selon vos conditions.</h2>
-                        <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant
-                            découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-                    </div>
-                </div>
-                <div className='xp'>
-                    <img className="stick right" src={stick}></img>
-                    <div className="solutionText">
-                        <h2>Trouvez des produits selon vos conditions.</h2>
-                        <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant
-                            découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-                    </div>
-                    <img className="phone" src={phone4}></img>
-                </div>
-            </div>
+        </div>
+        <h1 id="end">bor nayo cho!</h1>
+        <p className="text">Trouvez des produits selon votre budget, Evitez les malaria, comparez les prix des produits, le tout dans une seule application.</p>
+        <p className="text">Vous n’acheterez plus les produits d’occasion de la même manière.</p>
+        <Cta a="CTA" state={props.toggle}/>
+      </div>
+      <div  ref={heroRef} className="heroRight">
+        <img src={ladyphone}></img>
+      </div>
+    </div>
+    <div className="divide">
+      <h2>Nous vous offrons une nouvelle façon de dealer...</h2>
+    </div>
+    <div className="benefit">
+      <div className='xp reverse'>
+        <img className="stick left"src={stick}></img>
+        <img className="phone"src={phone1}></img>
+        <div className="solutionText">
+          <h2>Trouvez des produits selon vos conditions.</h2>
+          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
+        </div>
+      </div>
+      <div className='xp'>
+        <img className="stick right"src={stick}></img>
+        <div className="solutionText">
+          <h2>Trouvez des produits selon vos conditions.</h2>
+          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
+        </div>
+        <img className="phone"src={phone2}></img>
+      </div>
+      <div className='xp reverse'>
+        <img className="stick left"src={stick}></img>
+        <img className="phone"src={phone3}></img>
+        <div className="solutionText">
+          <h2>Trouvez des produits selon vos conditions.</h2>
+          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
+        </div>
+      </div>
+      <div className='xp'>
+        <img className="stick right"src={stick}></img>
+        <div className="solutionText">
+          <h2>Trouvez des produits selon vos conditions.</h2>
+          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
+        </div>
+        <img className="phone"src={phone4}></img>
+      </div>
+    </div>
 
             <div className="lastCTA">
                 <img className="sparker" src={sparker}></img>
                 <h3>Faites parti de ceux qui dealent avec nous</h3>
-                <Cta a="CTA xx" />
+                <Cta a="CTA xx" state={props.toggle}  />
             </div>
         </>
     )

@@ -1,50 +1,59 @@
 import React, {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import axios from 'axios';
-import CloseIcon from '@mui/icons-material/Close';
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
+
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
+import {primaryColor, primaryColorLight, primaryColorSuperLight, secondaryColor, lineColor, confirmColor} from "../styles/magStyle"
+import axios from 'axios';
+//RAW
+//const {google} = require('googleapis')
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify";
 
-const url = "https://sheet.best/api/sheets/06564bf6-711c-4f14-8de1-3a99f78f19d9"
 
-function Form() {
-    const [input, setInput] = useState({
-        nom: '',
-        prenom: '',
+const url = 'https://sheet.best/api/sheets/6d046578-d62e-4f8e-99a7-ba3bfaa431fa'
+const spreadSheet = process.env.REACT_APP_SS_ID
+const ApiKey = process.env.REACT_APP_SHEET_API_KEY
+const CLIENT_ID = process.env.REACT_APP_SHEET_CLIENT_ID
+
+function Form(props) {
+  //let sheets = google.sheets('v4');
+  const [input, setInput] = useState({
+        nom:'',
+        prenom:'',
         email: '',
         phone: '',
         occupation: ''
     })
+    const [alt,setAlt] = useState(props.alert)
+    
+  
 
-    const [alt, setAlt] = useState(false)
-
-    function handleChange(e) {
-        setInput((prev) =>
-            ({
-                ...prev,
-                [e.target.name]: e.target.value
-            }))
+    //const [formStatus, setFormStatus] = props.formStatus
+    function handleChange(e){
+        setInput((prev)=>
+        ({...prev,
+        [e.target.name]:e.target.value
+        }))
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post(url, input)
+        try{
+          axios.post(url, input)
             .then(response => {
-                console.log(response)
-                toast.success("Ajouté à la liste de diffusion avec succès");
-            })
-            .catch(error => {
-                console.error('error in submitting record to waiting list : ', error.message);
-            })
-        setInput({nom: '', email: '', prenom: '', phone: '', occupation: ''})
-        setAlt(true)
+            console.log(response);
+          })
+          setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
+            props.alertOn()
+          props.toggleOff()
+        }catch(err){
+          console.log("I am sorry" + err.message)
+        }
+
     }
 
     return (
@@ -122,17 +131,14 @@ function Form() {
                         }}
                     >
 
-                        <FormControlLabel className='rara' value="Vendeur" name="occupation" onChange={handleChange}
-                                          control={<Radio />} label="Vendeur/Vendeuse" />
-                        <FormControlLabel className='rara' value="Vendeuse" name="occupation" onChange={handleChange}
-                                          control={<Radio />} label="Acheteur/Acheteuse" />
-                        <FormControlLabel className='rara' value="Commissionaire" name="occupation"
-                                          onChange={handleChange} control={<Radio />} label="Commissionaire" />
-                        <FormControlLabel className='rara' value="Autre" name="occupation" onChange={handleChange}
-                                          control={<Radio />} label="Autre" />
-                    </RadioGroup>
-                </div>
-                <Button type='submit' variant="contained">s'inscrire sur la liste d'attente</Button>
+                <FormControlLabel className='rara' value="Vendeur" name="occupation" onChange={handleChange}control={<Radio />} label="Vendeur/Vendeuse" />
+                <FormControlLabel className='rara' value="Vendeuse" name="occupation" onChange={handleChange} control={<Radio />} label="Acheteur/Acheteuse" />
+                <FormControlLabel className='rara' value="Commissionaire" name="occupation" onChange={handleChange} control={<Radio />} label="Commissionaire" />
+                <FormControlLabel className='rara' value="Amoureux de Contre-valeur" name="occupation" onChange={handleChange} control={<Radio />} label="Contre-valeur" />
+                <FormControlLabel className='rara' value="Autre" name="occupation" onChange={handleChange} control={<Radio />} label="Autre" />
+              </RadioGroup>
+            </div>
+            <Button  color="primary" width={300} sx={{color:'white', marginTop:'1.5rem', background:primaryColor, width:300}} type='submit' className='CTA' variant="contained">S'inscrire</Button>
 
             </form>
             {/*<p>{input.nom}</p>

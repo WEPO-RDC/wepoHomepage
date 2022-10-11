@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
+
+
+
 
 :root {
 
@@ -16,11 +20,10 @@
     width: 100%;
 }
 
-#root {
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-    height: 100%;
-    position: relative;
+#root{
+  width:100%;
+  font-family: 'Inter', sans-serif;
+  height: 100%;
 }
 
 .App-link {
@@ -47,15 +50,14 @@ header {
     position: sticky;
     top: 0;
 }
-
-.responsiveNav {
-    position: fixed;
-    top: 0px;
-    z-index: 400;
-    background: var(--primary1);
-    width: 100vw;
-    height: fit-content;
-    transition: ease-in-out 5s;
+.responsiveNav{
+  position:fixed;
+  top:0px;
+  z-index: 400;
+  background:var(--primary1);
+  width:100vw;
+  height:fit-content;
+  transition: ease-in-out 0.5s;
 }
 
 
@@ -87,16 +89,17 @@ header {
     justify-content: center;
 }
 
-.sns-logo a {
-    color: black;
-    font-size: 20px;
-    opacity: 0.6;
+.sns-logo i{
+  color:black;
+  font-size: 30px;
+  opacity: 0.4;
+  text-decoration: none;
 
 }
 
-.sns-logo a:hover {
-    color: black;
-    opacity: 1;
+.sns-logo i:hover {
+    color:black;
+    opacity:1
 }
 
 .responsiveEl {
@@ -122,10 +125,6 @@ header {
     opacity: 1;
 }
 
-.okform {
-    padding-bottom: 50px;
-    margin-bottom: 100px;
-}
 
 .navRight {
     display: flex;
@@ -210,12 +209,19 @@ header {
 .radioN {
     margin-top: 20px;
 }
+/*FORM CONTAINER*/
 
 .MuiFormGroup-root {
     margin: 0px;
     padding: 0px;
     font-size: 12px;
 
+  position:fixed;
+  width: 100%;
+  height:100%;
+  top:0;
+  z-index: 10;
+  background: rgba(255, 225, 33, 0.80);
 }
 
 .form {
@@ -229,9 +235,16 @@ header {
     width: 80%;
 }
 
+
+
+
+
+
 .form h2 {
-    font-family: 'Fredoka';
-    font-weight: 250;
+  font-weight: 2rem;
+    font-family: 'Reem Kufi Ink', sans-serif;
+  width:'80%';
+    padding:0 20%;
 }
 
 /*HERO ================================================*/
@@ -260,14 +273,15 @@ header {
     text-align: left;
 }
 
-.heroLeft p {
+.heroLeft .text {
     text-align: left;
     width: 100%;
     flex-wrap: wrap;
     box-sizing: border-box;
     height: auto;
-    font-size: 15px;
-    line-height: 130%;
+    font-size: 16px;
+    line-height: 150%;
+  font-weight: 400;
 }
 
 #copywrite {
@@ -277,14 +291,38 @@ header {
     margin: 0px;
     padding: 0px;
 
+.slider div{
+  font-family: 'Reem Kufi Ink', sans-serif;
+  font-weight: bold;
+  color: white; 
+  height:50px;
+  margin-bottom:50px ;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 3rem;
+  background: var(--primary1);
+  padding: 4px 10px;
+
 }
+.slider{
+  height: 50px;
+  overflow: hidden;
+}
+.slide-1{
+  animation: slide 10s linear infinite;
 
-.switch {
-    font-size: 70px;
-    font-weight: bold;
-    color: var(--primary1);
-
-
+}
+@keyframes slide {
+  0% {margin-top:-150px;}
+  3%{margin-top:-100px}
+  33%{margin-top: -100px;}
+  37% {margin-top:-50px;}
+  66% {margin-top:-50px;}
+  69% {margin-top:0px;}
+  100% {margin-top:0px;}
 }
 
 #end {
@@ -294,24 +332,18 @@ header {
     margin-bottom: 2rem;
     padding: 0px;
     line-height: 115%;
+  font-family: 'Reem Kufi Ink', sans-serif;;
 
 }
 
-.switch {
-    width: 100%;
-    height: 15%;
-    margin: 0px;
-    padding: 0px;
-}
-
-.CTA {
-    all: unset;
-    padding: 0.7rem;
-    margin-top: 0.5rem;
-    background-color: var(--primary2-dark2);
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
+.CTA{
+  all:unset;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  background-color: var(--primary2-dark2);
+  border-radius: 5px;
+  color:white;
+  font-weight: bold;
 }
 
 .CTA:hover {
@@ -482,6 +514,7 @@ header {
     align-items: center;
 }
 
+
 /*FOOTER ======================================*/
 
 footer {
@@ -599,13 +632,19 @@ footer form {
 
 
 /*MEDIA QUERY */
-@media (max-width: 525px) {
 
+
+
+/*FOR MOBILE DEVICE*/
+@media only screen and (max-width:600px){
+  
 
     body {
         width: 100vw;
         box-sizing: border-box;
     }
+
+  /*NAV BAR */
 
     .wepo-logo {
         margin: 0px;
@@ -638,63 +677,57 @@ footer form {
         width: 20px;
     }
 
-    .heroContainer {
-        all: unset;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 85vw;
-        margin: auto;
-        box-sizing: border-box;
-        flex-wrap: wrap;
-        display: flex;
-        flex-direction: column-reverse;
-    }
 
-    .heroRight {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
+  /*HERO CONTENT*/
+  .heroContainer{
+    all:unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:85vw;
+    margin:auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .heroRight{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+  }
 
-    .heroRight img {
-        all: unset;
-        width: 100%;
-        position: relative;
-        left: -40px;
-    }
+  .heroRight img{
+    all:unset;
+    width:100%;
+    position: relative;
+    left: -40px;
+  }
+  .switch{
+    box-sizing: border-box;
+    position:relative;
+    margin:2.5rem auto 0.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h2{
+    font-size: 10px;
+  }
 
-    .switch {
-        width: 90%;
-        height: 40px;
-        box-sizing: border-box;
-        position: relative;
-        margin: 2.5rem auto 0.5rem auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #copywrite {
-        font-size: 3rem;
-        color: var(--primary1);
-        text-align: center;
-    }
-
-    #end {
-        width: 90%;
-        margin: auto;
-        position: relative;
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .heroLeft {
-        all: unset;
-        width: 100%;
-    }
+  #end{
+    width:90%;
+    margin:auto;
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .heroLeft{
+    all:unset;
+    width:100%;
+  }
 
     .heroLeft p {
         text-align: justify;
@@ -727,17 +760,24 @@ footer form {
     .right {
         all: unset;
     }
+.divide h2{
+  font-size: 0.8rem;
+}
 
     .xp {
         all: unset;
         width: 100%;
         margin: 0px auto;
+    margin-top:2rem;
         padding: 0px;
         flex-wrap: wrap;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+  .reverse{
+    flex-direction: column-reverse;
+  }
 
     .xp h2 {
         font-size: 1.7rem;
@@ -754,6 +794,7 @@ footer form {
         all: unset;
         margin: 0px;
         padding: 0px;
+    margin-bottom:2rem;
     }
 
     .solutionText p {
@@ -765,21 +806,20 @@ footer form {
     .stick {
         display: none;
     }
-
-    .phone {
-        width: 100%;
-        margin: 0px auto;
-        padding: 0px;
-    }
-
-    .footer {
-        position: absolute;
-        bottom: 0px;
-        box-sizing: border-box;
-    }
-
-    .footer-right {
-        width: 100%;
-    }
-
+  .phone{
+    width:100%;
+    margin:0px auto;
+    padding: 0px;
+  }
+  .footer{
+    position:absolute;
+    bottom: 0px;
+    box-sizing: border-box;
+  }
+  .footer-right{
+    width:100%;
+  }
+  
 }
+
+/*FOR TABLETTE*/
