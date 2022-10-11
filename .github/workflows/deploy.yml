@@ -1,4 +1,4 @@
-name: MasterDeployCI
+name: WEPO Homepage update
 on:
   push:
     branches:
