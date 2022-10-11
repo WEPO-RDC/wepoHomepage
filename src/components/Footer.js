@@ -1,40 +1,41 @@
 import logo from "../WEPOLOGOSVG.svg"
 
 
-function Signup(){
-    return(
-        <form >
-            <input/>
-            <input/>
+function Signup() {
+    return (
+        <form>
+            <input />
+            <input />
             <button>Submit</button>
         </form>
     )
 }
 
-function Footer(){
-    return(
+function Footer() {
+    return (
         <footer id="footer">
             <div className="footer-1">
                 <div className="footer-title">
-                    <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo"alt="logo-wepo"src={logo}/></a>
+                    <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo" alt="logo-wepo"
+                                                                      src={logo} /></a>
                     <div className="footer-right">
                         <div className="sns-logo">
 
-                        <a href="https://www.instagram.com/wearewepo" target="_blank" >
+                            <a href="https://www.instagram.com/wearewepo" target="_blank" rel="noreferrer">
 <span>
 
-                            <i className="fa-brands fa-instagram fa-xl"/>
+                            <i className="fa-brands fa-instagram fa-xl" />
 </span>
                             </a>
-                        <a href="https://www.facebook.com/wearewepo" target="_blank" >
-                            <i className="fa-brands fa-facebook fa-xl"/>
-                        </a>
-                        <a href="https://wa.me/821027026758" target="_blank" >
-                            <i className="fa-brands fa-whatsapp fa-xl"/>
-                        </a>
+                            <a href="https://www.facebook.com/wearewepo" target="_blank" rel="noreferrer">
+                                <i className="fa-brands fa-facebook fa-xl" />
+                            </a>
+                            <a href="https://wa.me/821027026758" target="_blank" rel="noreferrer">
+                                <i className="fa-brands fa-whatsapp fa-xl" />
+                            </a>
                         </div>
                         <p>
-                        © WEPO RDC 2022
+                            © WEPO RDC 2022
                         </p>
                     </div>
                 </div>
