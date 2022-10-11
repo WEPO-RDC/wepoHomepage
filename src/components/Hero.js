@@ -68,7 +68,7 @@ function Hero(props) {
     <div className="divide">
       <h2>Nous vous offrons une nouvelle façon de dealer...</h2>
     </div>
-    <div className="benefit">
+    {/*<div className="benefit">
       <div className='xp reverse'>
         <img alt="benefit" className="stick left"src={stick}></img>
         <img alt="phone" className="phone"src={phone1}></img>
@@ -102,12 +102,15 @@ function Hero(props) {
         <img alt="phone" className="phone"src={phone4}></img>
       </div>
     </div>
+    
 
             <div className="lastCTA">
                 <img alt="phone" className="sparker" src={sparker}></img>
                 <h3>Faites parti de ceux qui dealent avec nous</h3>
                 <Cta a="CTA xx" state={props.toggle}  />
             </div>
+
+            */}
         </>
     )
 }
