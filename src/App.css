@@ -407,7 +407,7 @@ header {
 
 .divide h2 {
     font-size: 20px;
-    letter-spacing: 8px;
+    font-weight: 400;
 }
 
 .benefit {
@@ -473,7 +473,7 @@ header {
 }
 
 .xx {
-    width: 350px;
+    width: 100%;
     height: 32px;
     margin: 50px 0px;
 }
@@ -758,7 +758,7 @@ footer form {
     }
 
     .CTA-container {
-        margin: 2rem auto;
+        width: 100%;
     }
 
     .CTA {
@@ -784,9 +784,9 @@ footer form {
     .right {
         all: unset;
     }
-.divide h2{
-  font-size: 0.8rem;
-}
+    .divide h2{
+    font-size: 0.8rem;
+    }
 
     .xp {
         all: unset;
@@ -842,8 +842,29 @@ footer form {
   }
   .footer-right{
     width:100%;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
   }
-  
+
+  .lastCTA{
+    height:fit-content;
+    display:none;
+  }
+  .wepo-logo{
+    display: none;
+  }
+
+  .sns-logo{
+    gap:20px;
+    
+  }
+  .sns-logo a{
+    all:unset;
+  }
+  .sns-logo i{
+    font-size: 24px;
+  }
 }
 
 /*FOR TABLETTE*/

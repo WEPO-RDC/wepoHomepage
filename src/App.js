@@ -21,14 +21,18 @@ function App() {
     const [responsive, setResponsive] = useState("web")
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     const [showForm, setShowForm] = useState(false)
-    const [result, setResult] = useState("")
+    const [result, setResult] = useState([])
 
     function update() {
-        fetch(wepoUrl, {headers})
+        fetch(wepoUrl, headers)
           .then((res) => {
-            console.log(res.status);
+            return res.json();
             //return res.json();
           })
+          .then(res => {
+            console.log(res.view.list.data.list)
+            setResult(res.view.list.data.list)
+        })
           .catch((err) => console.log(err.message));
     }
     function toggleShow(){
@@ -50,12 +54,17 @@ function App() {
 
         window.addEventListener("resize", watchWidth);
     }, [screenWidth])
+
+    let elements = result.map(item => <div><p>{item.post_title}</p>
+    <p>{item.post_content}</p><hr/></div>)
     return (
         <div className="App">
             <Navbar responsive={responsive} screenWidth={screenWidth} />
-            {/*<Hero toggle = {toggleShow} show = {showForm} />*/}
-            <button onClick={update}>Update</button>
-            <p>{}</p>
+            {<Hero toggle = {toggleShow} show = {showForm} />}
+
+            <ul>
+                
+            </ul>
             <Footer />
         </div>
     );

@@ -13,7 +13,7 @@ function Navbar(props) {
     return (
         <header>
             <nav className="nav">
-                <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo" alt="logo-wepo"
+                <a href="https://wepo-rdc.github.io/wepoHomepage/"><img className="wepo-logo" alt="logo-wepo"
                                                                   src={logo} /></a>
 
                 {
@@ -23,10 +23,13 @@ function Navbar(props) {
                     <div className = "linkContainer">
                     
                     <div className="nav-sns">
-                        
-                        <a className="link" href="https://www.instagram.com/wearewepo" target="_blank" >About Us{/*<i className="fa-brands fa-instagram fa-xl"></i>*/}</a>
-                        <a className="link" href="https://www.facebook.com/wearewepo" target="_blank" >Astuces{/*<i className="fa-brands fa-facebook fa-xl"></i>*/}</a>
-                        <a className="link" href="https://wa.me/821027026758" target="_blank" >Contacts{/*<i className="fa-brands fa-whatsapp fa-xl"></i>*/}</a>
+                        {
+                        /*
+                        <a className="link" href="https://www.instagram.com/wepordc" target="_blank" >About Us</a>
+                        <a className="link" href="https://www.facebook.com/wepordc" target="_blank" >Astuces</a>
+                        <a className="link" href="https://wa.me/821027026758" target="_blank" >Contacts</a>
+                        */
+                        }
                     </div>
                 
                     <div id="commission">

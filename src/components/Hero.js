@@ -104,13 +104,13 @@ function Hero(props) {
     </div>
     
 
+  */}
             <div className="lastCTA">
                 <img alt="phone" className="sparker" src={sparker}></img>
                 <h3>Faites parti de ceux qui dealent avec nous</h3>
                 <Cta a="CTA xx" state={props.toggle}  />
             </div>
 
-            */}
         </>
     )
 }

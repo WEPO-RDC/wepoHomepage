@@ -8,7 +8,7 @@ function Footer() {
         <footer id="footer">
             <div className="footer-1">
                 <div className="footer-title">
-                    <a href="https://magmukendi.me/wepoHomepage"><img className="wepo-logo" alt="logo-wepo"
+                    <a href="https://wepo-rdc.github.io/wepoHomepage/"><img className="wepo-logo" alt="logo-wepo"
                                                                       src={logo} /></a>
                     <div className="footer-right">
                         <div className="sns-logo">
