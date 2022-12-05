@@ -1,13 +1,11 @@
-import stick from "./../assets/stick.svg"
-import ladyphone from './../assets/lady.png'
-import phone1 from './../assets/phone1.png'
-import phone2 from './../assets/phone2.png'
-import phone3 from './../assets/phone3.png'
-import phone4 from './../assets/phone4.png'
 import sparker from './../assets/sparker.svg'
+
+import ladyphone from './../assets/lady.png'
+
 import {gsap} from 'gsap'
 import {useEffect, useState, useRef} from "react"
 import Form from "./Form"
+import {Solutions} from '../components'
 
 function Cta(props){
 
@@ -68,48 +66,12 @@ function Hero(props) {
     <div className="divide">
       <h2>Nous vous offrons une nouvelle façon de dealer...</h2>
     </div>
-    {/*<div className="benefit">
-      <div className='xp reverse'>
-        <img alt="benefit" className="stick left"src={stick}></img>
-        <img alt="phone" className="phone"src={phone1}></img>
-        <div className="solutionText">
-          <h2>Trouvez des produits selon vos conditions.</h2>
-          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-        </div>
-      </div>
-      <div className='xp'>
-        <img className="stick right"src={stick}></img>
-        <div className="solutionText">
-          <h2>Trouvez des produits selon vos conditions.</h2>
-          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-        </div>
-        <img alt="phone" className="phone"src={phone2}></img>
-      </div>
-      <div className='xp reverse'>
-        <img alt="phone" className="stick left"src={stick}></img>
-        <img className="phone"src={phone3}></img>
-        <div className="solutionText">
-          <h2>Trouvez des produits selon vos conditions.</h2>
-          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-        </div>
-      </div>
-      <div className='xp'>
-        <img alt="phone" className="stick right"src={stick}></img>
-        <div className="solutionText">
-          <h2>Trouvez des produits selon vos conditions.</h2>
-          <p>Vous n’êtes plus obligé de parcourir la liste de tous les produits, vous pouvez maintenant découvrir des produits en fonction de votre budget, votre localisation et vos critères</p>
-        </div>
-        <img alt="phone" className="phone"src={phone4}></img>
-      </div>
+    <Solutions/>
+    <div className="lastCTA">
+        <img alt="phone" className="sparker" src={sparker}></img>
+        <h3>Faites parti de ceux qui dealent avec nous</h3>
+        <Cta a="CTA xx" state={props.toggle}  />
     </div>
-    
-
-  */}
-            <div className="lastCTA">
-                <img alt="phone" className="sparker" src={sparker}></img>
-                <h3>Faites parti de ceux qui dealent avec nous</h3>
-                <Cta a="CTA xx" state={props.toggle}  />
-            </div>
 
         </>
     )

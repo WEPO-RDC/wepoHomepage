@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import Form from './components/Form';
 import {useEffect, useState} from 'react';
-
+import {Solutions} from './components'
 
 
 

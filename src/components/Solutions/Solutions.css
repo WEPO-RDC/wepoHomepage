@@ -1,0 +1,146 @@
+.benefit {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0px 100px;
+    display: flex;
+    height: max-content;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    flex-direction: column;
+    margin: 0px;
+}
+.reverse{
+    flex-direction: row-reverse;
+  }
+
+.xp {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 170px;
+    box-sizing: border-box;
+
+}
+
+.xp .stick {
+    position: absolute;
+    top: 0%;
+}
+
+.xp .left {
+    left: -7.5%;
+}
+
+.xp .right {
+    right: -7.5%;
+}
+
+.xp .phone {
+    height: 80%;
+}
+
+
+.solutionText {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.solutionText h2 {
+    font-size: 40px;
+}
+
+.solutionText p {
+    font-size: 20px;
+    line-height: 150%;
+}
+
+@media (max-width:600px){
+    .benefit {
+        box-sizing: border-box;
+        width: 90vw;
+        padding: 0px;
+        margin: 0px auto;
+    }
+
+    .benefit p {
+        all: unset;
+    }
+
+    .left {
+        all: unset;
+    }
+
+    .right {
+        all: unset;
+    }
+    .divide h2{
+    font-size: 0.8rem;
+    }
+
+    .xp {
+        all: unset;
+        width: 100%;
+        margin: 0px auto;
+        flex-direction: column-reverse;
+        margin-top:2rem;
+        padding: 0px;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  .reverse{
+    flex-direction: column-reverse;
+    margin-bottom: 1rem;
+  }
+
+    .xp h2 {
+        font-size: 1.5rem;
+        margin: 0px;
+        padding: 0px;
+        padding: 1rem 1rem;
+    }
+
+    .xp p {
+        all: unset;
+    }
+
+    .solutionText {
+        all: unset;
+        margin: 0px;
+        padding: 0px;
+        margin-bottom:2rem;
+        text-align: justify;
+        width: 90%;
+    }
+
+    .solutionText h2{
+        text-align: center;
+    }
+
+    .solutionText p{
+        text-align: justify;
+        font-size: 0.8rem;
+    }
+
+    .solutionTextP{
+        text-align: justify;
+    }
+
+    .stick {
+        display: none;
+    }
+  .phone{
+    width:80%;
+    margin:0px auto;
+    padding: 0px;
+  }
+}
