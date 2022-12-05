@@ -721,7 +721,7 @@ footer form {
 
   .lastCTA{
     height:fit-content;
-    display:none;
+    margin :3rem 0px;
   }
   .wepo-logo{
     display: none;
