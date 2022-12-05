@@ -1,12 +1,10 @@
 import './App.css';
 
-import React, {Component} from "react";
+import React from "react";
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
-import Form from './components/Form';
 import {useEffect, useState} from 'react';
-import {Solutions} from './components'
 
 
 
