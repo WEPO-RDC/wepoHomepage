@@ -2,7 +2,7 @@
   "name": "wepohomepage",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.wepo.tech",
+  "homepage": "https://wepo.tech",
   "author": " WEPO RDC <wepo.cd@gmail.com> (https://www.wepo.tech/)",
   "dependencies": {
     "@emotion/react": "^11.10.0",
