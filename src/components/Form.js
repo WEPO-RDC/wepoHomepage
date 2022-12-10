@@ -6,13 +6,13 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
-import {primaryColor, primaryColorLight, primaryColorSuperLight, secondaryColor, lineColor, confirmColor} from "../styles/magStyle"
+import {primaryColor} from "../styles/magStyle"
 import axios from 'axios';
 import { AiFillCloseCircle } from "react-icons/ai"
 
 //const {google} = require('googleapis')
 import 'react-toastify/dist/ReactToastify.css';
-import {toast} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 
 
 const url = 'https://sheet.best/api/sheets/6d046578-d62e-4f8e-99a7-ba3bfaa431fa'
@@ -49,22 +49,34 @@ function Form(props) {
         try{
           axios.post(url, {time:now,...input})
             .then(response => {
-            console.log(response);
-          })
-          setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
-            //props.alertOn()
-          props.toggleOff()
+                console.log(response.data, " was submitted")
+            })
+            props.close()
+            props.doSubmit()
+            setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
+        
+            
+            toast.success("Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+        })
         }catch(err){
           console.log("I am sorry" + err.message)
         }
-        props.close()
 
     }
 
     return (
         <div className="okform">
+            <ToastContainer/>
 
-                {/*Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.*/}
+                {/**/}
             
             <form className='form' onSubmit={handleSubmit}>
 

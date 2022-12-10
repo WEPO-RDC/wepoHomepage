@@ -8,7 +8,6 @@ import {useEffect, useState} from 'react';
 
 
 
-
 let wepoUrl="https://dev.wepo.tech/api/board_post/lists/default/"
 
 const headers = new Headers({
@@ -20,6 +19,12 @@ function App() {
     const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     const [showForm, setShowForm] = useState(false)
     const [result, setResult] = useState([])
+    const [submit, setSubmit] = useState(false)
+
+
+    function Submitted(){
+      setSubmit(prev => !prev)
+    }
 
     function update() {
         fetch(wepoUrl, headers)
@@ -58,11 +63,8 @@ function App() {
     return (
         <div className="App">
             <Navbar responsive={responsive} screenWidth={screenWidth} />
-            {<Hero toggle = {toggleShow} show = {showForm} />}
-
-            <ul>
-                
-            </ul>
+            {<Hero toggle = {toggleShow} show = {showForm} isSubmitted = {submit} doSubmit = {Submitted} />}
+            
             <Footer />
         </div>
     );

@@ -3,7 +3,7 @@ import sparker from './../assets/sparker.svg'
 import ladyphone from './../assets/lady.png'
 
 import {gsap} from 'gsap'
-import {useEffect, useState, useRef} from "react"
+import {useEffect} from "react"
 import Form from "./Form"
 import {Solutions} from '../components'
 
@@ -31,20 +31,20 @@ function Hero(props) {
 
         var items = document.querySelectorAll("#copywrite"), length = items.length
         //tl.to(ttRef.current, {y:20, duration:1.5})
-        for (let i = 0; i < length; i++) {
-            tl.from(items[i], {y: -20, opacity: 0})
-            tl.to(items[i], {duration: 1.5, y: 0, opacity: 1, ease: "elastic", delay: 0.1})
-            tl.to(items[i], {duration: 2, y: 0, opacity: 1})
-            tl.to(items[i], {duration: 0.5, y: 0, opacity: 0, delay: 0})
-        }
-        tl.play()
 
     }, [])
 
     return(
       <>
-      { props.show && <Form close = {props.toggle}/>
+      { props.show && <Form 
+      close = {props.toggle}
+      doSubmit = {props.doSubmit}/>
       }
+
+
+                
+
+
       <div className = "heroContainer">
       <div  className="heroLeft">
         <div className="slider">
