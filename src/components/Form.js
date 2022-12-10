@@ -10,10 +10,6 @@ import {primaryColor, primaryColorLight, primaryColorSuperLight, secondaryColor,
 import axios from 'axios';
 import { AiFillCloseCircle } from "react-icons/ai"
 
-
-
-
-//RAW
 //const {google} = require('googleapis')
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from "react-toastify";
@@ -46,14 +42,17 @@ function Form(props) {
     }
 
     function handleSubmit(e) {
+
+        let now = new Date().toLocaleString()
+
         e.preventDefault();
         try{
-          axios.post(url, input)
+          axios.post(url, {time:now,...input})
             .then(response => {
             console.log(response);
           })
           setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
-            props.alertOn()
+            //props.alertOn()
           props.toggleOff()
         }catch(err){
           console.log("I am sorry" + err.message)
@@ -130,7 +129,7 @@ function Form(props) {
                 <FormControlLabel className='rara' value="Vendeur" name="occupation" onChange={handleChange}control={<Radio />} label="Vendeur/Vendeuse" />
                 <FormControlLabel className='rara' value="Vendeuse" name="occupation" onChange={handleChange} control={<Radio />} label="Acheteur/Acheteuse" />
                 <FormControlLabel className='rara' value="Commissionaire" name="occupation" onChange={handleChange} control={<Radio />} label="Commissionaire" />
-                <FormControlLabel className='rara' value="Amoureux de Contre-valeur" name="occupation" onChange={handleChange} control={<Radio />} label="Contre-valeur" />
+                <FormControlLabel className='rara' value="Contre-valeur" name="occupation" onChange={handleChange} control={<Radio />} label="Contre-valeur" />
                 <FormControlLabel className='rara' value="Autre" name="occupation" onChange={handleChange} control={<Radio />} label="Autre" />
               </RadioGroup>
             </div>
