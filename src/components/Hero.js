@@ -33,18 +33,13 @@ function Hero(props) {
         //tl.to(ttRef.current, {y:20, duration:1.5})
 
     }, [])
-
+    console.log(props.show)
     return(
       <>
       { props.show && <Form 
       close = {props.toggle}
       doSubmit = {props.doSubmit}/>
       }
-
-
-                
-
-
       <div className = "heroContainer">
       <div  className="heroLeft">
         <div className="slider">

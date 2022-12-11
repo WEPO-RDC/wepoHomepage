@@ -40,6 +40,7 @@ function App() {
     }
     function toggleShow(){
       showForm ? setShowForm(false) : setShowForm(true)
+      console.log(showForm)
     }
     useEffect(() => {
 

@@ -11,38 +11,10 @@ import axios from 'axios';
 import { AiFillCloseCircle } from "react-icons/ai"
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
-import { DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, } from '../utils';
+import {writeInSheet,gisLoaded, gapiLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, } from '../utils';
 
 function Form(props) {
-    const initClient =() =>{gapi.client.init({
-        apiKey:apiKey,
-        clientId:CLIENT_ID,
-        discoveryDocs:DISCOVERY_DOC,
-        scope:SCOPES
-    })
-    .then(()=>{
-            let response;
-            try{
-               response = gapi.client.sheets.spreadsheets.values.get({
-                spreadsheetId:process.env.REACT_APP_SS_ID,
-                range: 'Sheet2'
-               }).then((res)=>{
-                const result = res.result
-                console.log(`${result.valueRanges}`)
-               })
-            }catch(err){
-                console.log(err.message)
-                return;
-            }
-            console.log(response)
-    })
-    }
     
-
-    const script = document.getElementById('gapi')
-
-    console.log(window.gapi)
-
   const [input, setInput] = useState({
         nom:'',
         prenom:'',
@@ -63,7 +35,6 @@ function Form(props) {
     }
     
     function handleSubmit(e) {
-        
         e.preventDefault();
         if(!isValidEmail(input.email)){
             toast.error("Veuillez inserer un email correct", {
@@ -98,17 +69,22 @@ function Form(props) {
         }
 
         let now = new Date().toLocaleString()
-        /*try{
-          axios.post(url, {time:now,...input})
+        try{
+            gisLoaded()
+            gapiLoaded()
+            writeInSheet({now,input})
+            /*
+            axios.post(url, {time:now,...input})
             .then(response => {
                 console.log(response.data, " was submitted")
             })
-            props.close()
-            props.doSubmit()
-            setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
-        
+            */
+           props.close()
+           props.doSubmit()
+           setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
+           
             
-            toast.success("Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.", {
+           toast.success("Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.", {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -117,9 +93,9 @@ function Form(props) {
                 draggable: true,
                 progress: undefined,
                 theme: "light",
-        })
+            })
         }catch(err){
-          console.log("Error:" + err.message)
+            console.log("Error:" + err.message)
           toast.error("Nous n'avons pas pu soumettre votre inscription", {
             position: "top-center",
             autoClose: 5000,
@@ -131,7 +107,6 @@ function Form(props) {
             theme: "light",
         })
 
-        }*/
 
     }
 
@@ -208,12 +183,12 @@ function Form(props) {
                 <FormControlLabel className='rara' value="Autre" name="occupation" onChange={handleChange} control={<Radio />} label="Autre" />
               </RadioGroup>
             </div>
-            <Button  color="primary" width={300} sx={{color:'white', marginTop:'1.5rem', background:primaryColor, width:300}} type='submit' className='CTA' variant="contained">S'inscrire</Button>
+            <Button onClick={handleSubmit}  color="primary" width={300} sx={{color:'white', marginTop:'1.5rem', background:primaryColor, width:300}} type='submit' className='CTA' variant="contained">S'inscrire</Button>
 
             </form>
         </div>
     </GoogleApiProvider>
     )
 }
-
+}
 export default Form
