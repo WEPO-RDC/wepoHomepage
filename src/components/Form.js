@@ -14,7 +14,8 @@ import {toast, ToastContainer} from "react-toastify";
 import {writeInSheet,gisLoaded, gapiLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, } from '../utils';
 
 function Form(props) {
-    
+    gisLoaded()
+    gapiLoaded()
   const [input, setInput] = useState({
         nom:'',
         prenom:'',
@@ -36,7 +37,7 @@ function Form(props) {
     
     function handleSubmit(e) {
         e.preventDefault();
-        if(!isValidEmail(input.email)){
+        /*if(!isValidEmail(input.email)){
             toast.error("Veuillez inserer un email correct", {
                 position: "top-center",
                 autoClose: 5000,
@@ -65,25 +66,19 @@ function Form(props) {
             })
 
             console.log("Error: Incorrect Number")
-            return;
-        }
+            return
+        }*/
 
         let now = new Date().toLocaleString()
         try{
-            gisLoaded()
-            gapiLoaded()
-            writeInSheet({now,input})
-            /*
-            axios.post(url, {time:now,...input})
-            .then(response => {
-                console.log(response.data, " was submitted")
-            })
-            */
+            let values = Object.values(input)
+            
+            //console.log([now,...values])
+
+            writeInSheet([now,...values])
            props.close()
            props.doSubmit()
-           setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
-           
-            
+           setInput({nom:'', email:'', prenom:'', phone:'', occupation:''}) 
            toast.success("Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.", {
                 position: "top-center",
                 autoClose: 5000,
@@ -95,7 +90,7 @@ function Form(props) {
                 theme: "light",
             })
         }catch(err){
-            console.log("Error:" + err.message)
+            console.log("Error:", err.message)
           toast.error("Nous n'avons pas pu soumettre votre inscription", {
             position: "top-center",
             autoClose: 5000,
@@ -107,12 +102,10 @@ function Form(props) {
             theme: "light",
         })
 
-
+    }
     }
 
     return (
-        <GoogleApiProvider clientId= {CLIENT_ID}>
-
         <div className="okform">
             <ToastContainer/>
             
@@ -187,8 +180,6 @@ function Form(props) {
 
             </form>
         </div>
-    </GoogleApiProvider>
     )
-}
 }
 export default Form

@@ -15,7 +15,7 @@ let gisInited = false;
 
 
 function gapiLoaded() {
-    window.gapi.load('client', intializeGapiClient);
+    window.gapi.load('client:auth2', intializeGapiClient);
   }
 
 
@@ -24,12 +24,12 @@ await window.gapi.client.init({
     apiKey: apiKey,
     clientId: CLIENT_ID,
     scope:SCOPES,
-    plugin_name:"waitlist",
-    discoveryDocs: [DISCOVERY_DOC],
+    //plugin_name:"waitlist",
+    discoveryDocs: DISCOVERY_DOC,
 });
 gapiInited = true;
-console.log(gapiInited, gisInited)
-maybeEnableButtons()
+//console.log(gapiInited, gisInited)
+
 }
 
 function gisLoaded() {
@@ -39,7 +39,8 @@ function gisLoaded() {
       callback: '', // defined later
     });
     gisInited = true;
-    maybeEnableButtons()
+    
+
   }
 
 function maybeEnableButtons() {
@@ -49,8 +50,8 @@ function maybeEnableButtons() {
               throw (resp);
             }
           }
-        console.log("SUCCESS")
-        console.log(window.gapi.client)
+        //console.log("SUCCESS")
+        //console.log(window.gapi.client)
         displaySheet()
   }
 }
@@ -68,26 +69,32 @@ function maybeEnableButtons() {
     }
   }
 
-  async function writeInSheet(data){
-    let values = [[]]
-    values = [...data]
+  function writeInSheet(data){
+    console.log(tokenClient)
+    console.log(gapiInited, gisInited)
+    console.log((data))
+
+    let values = [data]
     const body = {
       values: values
     }
     try{
 
-      window.gapi.client.sheets.spreadsheets.values.update({
+      window.gapi.client.sheets.spreadsheets.values.append({
         spreadsheetId: spreadSheet,
-        range:'Sheet1',
+        range:'Sheet2!A1:F',
         valueInputOption: "RAW",
-        ressource: body
+        insertDataOption:"INSERT_ROWS",
+        values: body
+      }).then((response) =>{
+        const result = response.result
+        console.log(result)
       })
     }
     catch(err){
       console.log(err.message)
       return "Not posted"
     }
-
     return "SUCCESS"
     }
     

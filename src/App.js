@@ -39,8 +39,7 @@ function App() {
           .catch((err) => console.log(err.message));
     }
     function toggleShow(){
-      showForm ? setShowForm(false) : setShowForm(true)
-      console.log(showForm)
+      setShowForm(prev =>!prev)
     }
     useEffect(() => {
 
