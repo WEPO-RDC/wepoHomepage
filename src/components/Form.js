@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useGoogleApi, GoogleApiProvider } from 'react-gapi';
@@ -11,11 +11,11 @@ import axios from 'axios';
 import { AiFillCloseCircle } from "react-icons/ai"
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
-import {writeInSheet,gisLoaded, gapiLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, } from '../utils';
+import {gapiLoad, writeInSheet,gisLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, } from '../utils';
+import getToken from '../utils/sing';
 
 function Form(props) {
-    gisLoaded()
-    gapiLoaded()
+    
   const [input, setInput] = useState({
         nom:'',
         prenom:'',
@@ -24,8 +24,13 @@ function Form(props) {
         occupation: ''
     })
     const [alt,setAlt] = useState(props.alert)
-    
-  
+    /*
+    useEffect(()=>{
+
+        gapiLoad()
+    },[])
+    gisLoaded() */
+    getToken()
 
     //const [formStatus, setFormStatus] = props.formStatus
     function handleChange(e){
@@ -34,7 +39,6 @@ function Form(props) {
             [e.target.name]:e.target.value
         }))
     }
-    
     function handleSubmit(e) {
         e.preventDefault();
         /*if(!isValidEmail(input.email)){
@@ -68,7 +72,7 @@ function Form(props) {
             console.log("Error: Incorrect Number")
             return
         }*/
-
+        
         let now = new Date().toLocaleString()
         try{
             let values = Object.values(input)

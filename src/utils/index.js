@@ -1,5 +1,5 @@
 import { isValidEmail, isDRCCongoPhoneNumber } from "./validation";
-import {writeInSheet,gisLoaded, gapiLoaded, CLIENT_ID,DISCOVERY_DOC,apiKey, SCOPES} from './auth'
+import {gapiLoad, writeInSheet,gisLoaded, CLIENT_ID,DISCOVERY_DOC,apiKey, SCOPES} from './auth'
 
 
-export {writeInSheet,gisLoaded, gapiLoaded,CLIENT_ID,DISCOVERY_DOC,apiKey, SCOPES, isValidEmail, isDRCCongoPhoneNumber }
+export {gapiLoad,writeInSheet,gisLoaded,CLIENT_ID,DISCOVERY_DOC,apiKey, SCOPES, isValidEmail, isDRCCongoPhoneNumber }
