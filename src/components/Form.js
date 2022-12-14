@@ -1,27 +1,21 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import { useGoogleApi, GoogleApiProvider } from 'react-gapi';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
-import {primaryColor, primaryColorLight, primaryColorSuperLight, secondaryColor, lineColor, confirmColor} from "../styles/magStyle"
+import {primaryColor} from "../styles/magStyle"
 import axios from 'axios';
 import { AiFillCloseCircle } from "react-icons/ai"
-
-//const {google} = require('googleapis')
 import 'react-toastify/dist/ReactToastify.css';
-import {toast} from "react-toastify";
-
-
-const url = 'https://sheet.best/api/sheets/6d046578-d62e-4f8e-99a7-ba3bfaa431fa'
-const spreadSheet = process.env.REACT_APP_SS_ID
-const ApiKey = process.env.REACT_APP_SHEET_API_KEY
-const CLIENT_ID = process.env.REACT_APP_SHEET_CLIENT_ID
+import {toast, ToastContainer} from "react-toastify";
+import {gapiLoad, writeInSheet,gisLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, writeUserData, userId, } from '../utils';
+import getToken from '../utils/sing';
 
 function Form(props) {
-  //let sheets = google.sheets('v4');
+
   const [input, setInput] = useState({
         nom:'',
         prenom:'',
@@ -30,41 +24,85 @@ function Form(props) {
         occupation: ''
     })
     const [alt,setAlt] = useState(props.alert)
-    
-  
+
 
     //const [formStatus, setFormStatus] = props.formStatus
     function handleChange(e){
         setInput((prev)=>
         ({...prev,
-        [e.target.name]:e.target.value
+            [e.target.name]:e.target.value
         }))
     }
-
     function handleSubmit(e) {
-
-        let now = new Date().toLocaleString()
-
         e.preventDefault();
-        try{
-          axios.post(url, {time:now,...input})
-            .then(response => {
-            console.log(response);
-          })
-          setInput({nom:'', email:'', prenom:'', phone:'', occupation:''})
-            //props.alertOn()
-          props.toggleOff()
-        }catch(err){
-          console.log("I am sorry" + err.message)
-        }
-        props.close()
+        if(!isValidEmail(input.email)){
+            toast.error("Veuillez inserer un email correct", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
+            console.log("Error: Incorrect Email")
 
+            return;
+        }
+        else if(!isDRCCongoPhoneNumber(input.phone))
+        {
+            toast.error("Veuillez inserer un numero de telephone correct", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
+
+            console.log("Error: Incorrect Number")
+            return
+        }
+        
+        let now = new Date().toLocaleString()
+        try{
+            
+            writeUserData({time:now,...input})
+           props.close()
+           props.doSubmit()
+           setInput({nom:'', email:'', prenom:'', phone:'', occupation:''}) 
+           toast.success("Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
+        }catch(err){
+            console.log("Error:", err.message)
+          toast.error("Nous n'avons pas pu soumettre votre inscription", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+
+    }
     }
 
     return (
         <div className="okform">
-
-                {/*Merci des vous enregistrez nous vous informerons dès que nous lançons l'application.*/}
+            <ToastContainer/>
             
             <form className='form' onSubmit={handleSubmit}>
 
@@ -83,7 +121,7 @@ function Form(props) {
                         defaultChecked="Hello World"
                         value={input.nom}
                         onChange={handleChange}
-                    />
+                        />
                     <TextField
                         required
                         name='prenom'
@@ -92,7 +130,7 @@ function Form(props) {
                         defaultChecked="Hello World"
                         value={input.prenom}
                         onChange={handleChange}
-                    />
+                        />
                     <TextField
                         required
                         name='email'
@@ -110,7 +148,7 @@ function Form(props) {
                         value={input.phone}
                         defaultChecked="Hello World"
                         onChange={handleChange}
-                    />
+                        />
                 </div>
                 <div className="radioN">
                     <FormLabel id="demo-radio-buttons-group-label">Lequel vous décrit le mieux ?</FormLabel>
@@ -124,7 +162,7 @@ function Form(props) {
                                 fontSize: 18,
                             },
                         }}
-                    >
+                        >
 
                 <FormControlLabel className='rara' value="Vendeur" name="occupation" onChange={handleChange}control={<Radio />} label="Vendeur/Vendeuse" />
                 <FormControlLabel className='rara' value="Vendeuse" name="occupation" onChange={handleChange} control={<Radio />} label="Acheteur/Acheteuse" />
@@ -133,14 +171,10 @@ function Form(props) {
                 <FormControlLabel className='rara' value="Autre" name="occupation" onChange={handleChange} control={<Radio />} label="Autre" />
               </RadioGroup>
             </div>
-            <Button  color="primary" width={300} sx={{color:'white', marginTop:'1.5rem', background:primaryColor, width:300}} type='submit' className='CTA' variant="contained">S'inscrire</Button>
+            <Button onClick={handleSubmit}  color="primary" width={300} sx={{color:'white', marginTop:'1.5rem', background:primaryColor, width:300}} type='submit' className='CTA' variant="contained">S'inscrire</Button>
 
             </form>
-            {/*<p>{input.nom}</p>
-        <p>{input.email}</p>
-        <p>{input.phone}</p>*/}
         </div>
     )
 }
-
 export default Form
