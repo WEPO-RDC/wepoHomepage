@@ -109,4 +109,4 @@ const scriptGapi = document.getElementById('gapi')
 const scriptGis = document.getElementById('gis')
 //scriptGapi.onload = gapiLoaded()
 //scriptGis.onload = gisLoaded()
-export {gapiLoad, writeInSheet,gisLoaded, CLIENT_ID, DISCOVERY_DOC,apiKey, SCOPES}
+export {spreadSheet,gapiLoad, writeInSheet,gisLoaded, CLIENT_ID, DISCOVERY_DOC,apiKey, SCOPES}

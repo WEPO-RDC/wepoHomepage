@@ -11,11 +11,11 @@ import axios from 'axios';
 import { AiFillCloseCircle } from "react-icons/ai"
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
-import {gapiLoad, writeInSheet,gisLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, } from '../utils';
+import {gapiLoad, writeInSheet,gisLoaded, DISCOVERY_DOC,apiKey, SCOPES, CLIENT_ID, isDRCCongoPhoneNumber, isValidEmail, writeUserData, userId, } from '../utils';
 import getToken from '../utils/sing';
 
 function Form(props) {
-    
+
   const [input, setInput] = useState({
         nom:'',
         prenom:'',
@@ -24,13 +24,7 @@ function Form(props) {
         occupation: ''
     })
     const [alt,setAlt] = useState(props.alert)
-    /*
-    useEffect(()=>{
 
-        gapiLoad()
-    },[])
-    gisLoaded() */
-    getToken()
 
     //const [formStatus, setFormStatus] = props.formStatus
     function handleChange(e){
@@ -41,7 +35,7 @@ function Form(props) {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        /*if(!isValidEmail(input.email)){
+        if(!isValidEmail(input.email)){
             toast.error("Veuillez inserer un email correct", {
                 position: "top-center",
                 autoClose: 5000,
@@ -71,15 +65,12 @@ function Form(props) {
 
             console.log("Error: Incorrect Number")
             return
-        }*/
+        }
         
         let now = new Date().toLocaleString()
         try{
-            let values = Object.values(input)
             
-            //console.log([now,...values])
-
-            writeInSheet([now,...values])
+            writeUserData({time:now,...input})
            props.close()
            props.doSubmit()
            setInput({nom:'', email:'', prenom:'', phone:'', occupation:''}) 
