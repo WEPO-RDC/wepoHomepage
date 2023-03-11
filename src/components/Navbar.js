@@ -13,7 +13,7 @@ function Navbar(props) {
     return (
         <header>
             <nav className="nav">
-                <a href="https://wepo-rdc.github.io/wepoHomepage/"><img className="wepo-logo" alt="logo-wepo"
+                <a href="https://wepo.tech"><img className="wepo-logo" alt="logo-wepo"
                                                                   src={logo} /></a>
 
                 {

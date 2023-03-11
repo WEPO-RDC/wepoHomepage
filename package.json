@@ -2,8 +2,8 @@
   "name": "wepohomepage",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.wepo.tech",
-  "author": " WEPO RDC <wepo.cd@gmail.com> (https://www.wepo.tech/)",
+  "homepage": "https://wepo.tech",
+  "author": " WEPO RDC <wepo.cd@gmail.com> (https://wepo.tech/)",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -13,17 +13,33 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "assert": "^2.0.0",
     "axios": "^0.27.2",
-    "firebase": "^9.12.1",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "firebase": "^9.15.0",
+    "fs": "^0.0.1-security",
+    "gapi-script": "^1.2.0",
+    "google-spreadsheet": "^3.3.0",
     "googleapi": "^1.0.2",
     "googleapis": "^105.0.0",
     "gsap": "^3.11.1",
+    "https-browserify": "^1.0.0",
+    "nanoid": "^4.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.2.0",
     "react-gapi": "^1.0.2",
+    "react-gapi-auth2": "^1.0.4",
     "react-icons": "^4.4.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-toastify": "^9.0.8",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -54,5 +70,6 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  }
+  },
+  "proxy": "http://localhost:3000/"
 }

@@ -1,1 +1,1 @@
-# WEPO Landing Page built using React App
+## WEPO's landing Page built using react.js

@@ -3,14 +3,11 @@ import sparker from './../assets/sparker.svg'
 import ladyphone from './../assets/lady.png'
 
 import {gsap} from 'gsap'
-import {useEffect, useState, useRef} from "react"
+import {useEffect} from "react"
 import Form from "./Form"
 import {Solutions} from '../components'
 
 function Cta(props){
-
-
-    
     return(
         <div className="CTA-container">
             <button onClick = {props.state} className={props.a}>Rejoignez la liste d’attente</button>
@@ -20,30 +17,12 @@ function Cta(props){
 
 function Hero(props) {
 
-    useEffect(() => {
-        //gsap.from(boxRef.current, {opacity:0, duration:1,translateY:10})
-        //gsap.to(boxRef.current, {opacity:1, duration:1.5, translateY:0})
-        //gsap.from(heroRef.current, {opacity:0, duration:1, translateX:-40})
-        //gsap.to(heroRef.current, {opacity:1, duration:2.5, translateX:0})
-        //gsap.from(heroBRef.current, {opacity:0, duration:1, translateX:-40} )
-        //gsap.to(heroBRef.current, {opacity:1, duration:1.5, translateX:0})
-        let tl = gsap.timeline({paused: true, repeat: -1, repeatDelay: 0.5})
-
-        var items = document.querySelectorAll("#copywrite"), length = items.length
-        //tl.to(ttRef.current, {y:20, duration:1.5})
-        for (let i = 0; i < length; i++) {
-            tl.from(items[i], {y: -20, opacity: 0})
-            tl.to(items[i], {duration: 1.5, y: 0, opacity: 1, ease: "elastic", delay: 0.1})
-            tl.to(items[i], {duration: 2, y: 0, opacity: 1})
-            tl.to(items[i], {duration: 0.5, y: 0, opacity: 0, delay: 0})
-        }
-        tl.play()
-
-    }, [])
 
     return(
       <>
-      { props.show && <Form close = {props.toggle}/>
+      {props.show && <Form 
+      close = {props.toggle}
+      doSubmit = {props.doSubmit}/>
       }
       <div className = "heroContainer">
       <div  className="heroLeft">
