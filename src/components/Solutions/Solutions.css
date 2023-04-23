@@ -129,11 +129,14 @@
 
     .solutionText p{
         text-align: justify;
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
 
     .solutionTextP{
         text-align: justify;
+    }
+    .solutionText li{
+        font-size: 2rem;
     }
 
     .stick {

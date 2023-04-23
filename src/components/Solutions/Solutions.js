@@ -4,7 +4,9 @@ import "./Solutions.css"
 function Solution(props)
 {
 
-    let copyContentElements = props.content > 0 ? props.content.map(item => <li >{item}</li>) : 0
+    let copyContentElements = props.content > 0 ?  props.content>1 ? props.content.map(item => 
+    <li >{item}</li>
+) :<li>{props.content[0]}</li> : 0
 
 return(
     <div className={props.num % 2 ?'xp' :"xp reverse"}>
