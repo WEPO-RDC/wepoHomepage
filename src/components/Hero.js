@@ -22,7 +22,7 @@ function Cta(props){
                 <p style={{textAlign:'center'}}>
               Téléchargez la version android maintenant
               </p>
-              <i style={{margin:"unset"}} className="fab fa-google-play" />
+              <i style={{margin:"unset", fontSize:'29'}} className="fab fa-google-play fa-xl" />
                 </div>
             </a>
             
