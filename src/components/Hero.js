@@ -20,7 +20,7 @@ function Cta(props){
               
               <div style={{display:'flex', flexDirection:'row', alignContent:'space-between', gap:'15px', alignItems:'center', margin:'auto'}}>
                 <p style={{textAlign:'center'}}>
-              Téléchargez la version android maintenant
+              Téléchargez maintenant
               </p>
               <i style={{margin:"unset", fontSize:'29'}} className="fab fa-google-play fa-xl" />
                 </div>
