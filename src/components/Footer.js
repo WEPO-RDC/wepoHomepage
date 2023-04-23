@@ -27,7 +27,7 @@ function Footer() {
                             </a>
                         </div>
                         <p>
-                            © WEPO RDC 2022
+                            © WEPO RDC 2023
                         </p>
                     </div>
                 </div>
