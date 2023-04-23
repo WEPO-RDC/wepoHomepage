@@ -20,7 +20,7 @@ function Cta(props){
               
               <div style={{display:'flex', flexDirection:'row', alignContent:'space-between', gap:'15px', alignItems:'center', margin:'auto'}}>
                 <p style={{textAlign:'center'}}>
-              Téléchargez maintenant
+              Téléchargez la version android maintenant
               </p>
               <i style={{margin:"unset"}} className="fab fa-google-play" />
                 </div>
@@ -64,7 +64,7 @@ function Hero(props) {
     <div className="lastCTA">
         <img alt="phone" className="sparker" src={sparker}></img>
         <h3>Faites parti de ceux qui dealent avec nous</h3>
-        <Cta a="CTA"/>
+        <Cta a="CTA xx"/>
     </div>
 
         </>
