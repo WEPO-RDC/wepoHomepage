@@ -386,7 +386,7 @@ header {
 
 .CTA:hover {
     cursor: pointer;
-    background-color: var(--special-black-lightgit);
+    background-color: var(--special-black-light);
 }
 
 .heroRight {
