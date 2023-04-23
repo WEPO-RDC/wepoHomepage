@@ -13,6 +13,8 @@
     --primary2-dark2: #209BFF;
     --primary2-dark3: #3DBDFF;
     --primary2-light2: #F8F8F8;
+    --special-black: #1c1c1c;
+    --special-black-light:#363636;
 }
 
 .App {
@@ -24,6 +26,7 @@
   width:100%;
   font-family: 'Inter', sans-serif;
   height: 100%;
+  color: var(--special-black);
 }
 
 .App-link {
@@ -90,7 +93,7 @@ header {
 }
 
 .sns-logo i{
-  color:black;
+  color:var(--special-black);
   font-size: 30px;
   opacity: 0.4;
   text-decoration: none;
@@ -98,7 +101,7 @@ header {
 }
 
 .sns-logo i:hover {
-    color:black;
+    color:var(--special-black);
     opacity:1
 }
 
@@ -115,7 +118,7 @@ header {
 .responsiveEl a {
     font-size: 3rem;
     text-decoration: none;
-    color: black;
+    color: var(--special-black);
     text-transform: uppercase;
     font-weight: 600;
     opacity: 0.6;
@@ -163,7 +166,7 @@ header {
 }
 
 #commission a {
-    color: black;
+    color: var(--special-black);
     transition: 0.1s ease-in-out;
 
 }
@@ -180,7 +183,7 @@ header {
 
 .nav .link {
     text-decoration: none;
-    color: black;
+    color: var(--special-black);
     opacity: 1;
     transition: 0.2s ease-in;
     padding: 10px;
@@ -370,7 +373,7 @@ header {
     margin:auto;
   padding: 0.7rem;
   margin-top: 0.5rem;
-  background-color: var(--primary2-dark2);
+  background-color: var(--special-black);
   border-radius: 5px;
   color:white;
   font-weight: bold;
@@ -383,7 +386,7 @@ header {
 
 .CTA:hover {
     cursor: pointer;
-    background-color: var(--primary2-dark1);
+    background-color: var(--special-black-lightgit);
 }
 
 .heroRight {
@@ -538,7 +541,7 @@ footer {
 
 .footer-right a {
     text-decoration: none;
-    color: black;
+    color: var(--special-black);
     opacity: 1;
     transition: 0.1s ease-in-out;
     border-radius: 600px;
@@ -590,7 +593,7 @@ footer form {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    color: black;
+    color: var(--special-black);
     text-decoration: none;
 
 }
@@ -598,7 +601,7 @@ footer form {
 .footer-text a {
     font-size: 10px;
     text-decoration: none;
-    color: black;
+    color: var(--special-black);
 }
 
 
@@ -634,12 +637,12 @@ footer form {
 
     .icon {
         font-size: 1.5rem;
-        color: black;
+        color: var(--special-black);
         display: unset;
     }
 
     .navRight {
-        background: black;
+        background: var(--special-black);
         display: flex;
         flex-direction: row;
         justify-content: center;
